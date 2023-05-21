@@ -106,8 +106,14 @@
     <Compile Include="fMainpage.Designer.cs">
       <DependentUpon>fMainpage.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\ImageModel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service\FireBaseService.cs" />
+    <None Include="Resources\search-icon.png" />
+    <None Include="Resources\film_poster.jpg" />
+    <None Include="Resources\Cream_logo.png" />
+    <None Include="Resources\Blue_logo.png" />
     <EmbeddedResource Include="fLogin.resx">
       <DependentUpon>fLogin.cs</DependentUpon>
     </EmbeddedResource>
@@ -143,7 +149,6 @@
   <ItemGroup>
     <Folder Include="Forms\" />
     <Folder Include="Properties\DataSources\" />
-    <Folder Include="Resources\" />
     <Folder Include="UserControls\" />
   </ItemGroup>
   <ItemGroup>
