@@ -112,6 +112,12 @@
     <Compile Include="Service\ComingDisc.cs" />
     <Compile Include="Service\FireBaseService.cs" />
     <Compile Include="Service\SQLConnection.cs" />
+    <Compile Include="UserControls\UsCtr_Manage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UsCtr_Manage.Designer.cs">
+      <DependentUpon>UsCtr_Manage.cs</DependentUpon>
+    </Compile>
     <None Include="Resources\search-icon.png" />
     <None Include="Resources\film_poster.jpg" />
     <None Include="Resources\Cream_logo.png" />
@@ -151,7 +157,6 @@
   <ItemGroup>
     <Folder Include="Forms\" />
     <Folder Include="Properties\DataSources\" />
-    <Folder Include="UserControls\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\font-awesome.css" />
