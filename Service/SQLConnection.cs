@@ -1,6 +1,6 @@
 ﻿using System.Data.SqlClient;
 
-namespace OOAD_Project.Service
+namespace IS201.N22.HTCL.Service
 {
     internal class SQLConnection
     {

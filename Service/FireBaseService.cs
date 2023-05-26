@@ -1,19 +1,15 @@
 ﻿using FireSharp.Config;
 using FireSharp.Interfaces;
 using FireSharp.Response;
-using OOAD_Project.Properties;
-using System;
-using System.Collections.Generic;
-using System.Drawing.Imaging;
-using System.Drawing;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+using IS201.N22.HTCL.Properties;
 using OOAD_Project.Model;
+using System;
+using System.Drawing;
+using System.Drawing.Imaging;
+using System.IO;
+using System.Windows.Forms;
 
-namespace OOAD_Project.Service
+namespace IS201.N22.HTCL.Service
 {
     internal class FireBaseService
     {
