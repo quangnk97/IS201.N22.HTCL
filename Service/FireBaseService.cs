@@ -1,8 +1,8 @@
 ﻿using FireSharp.Config;
 using FireSharp.Interfaces;
 using FireSharp.Response;
+using IS201_N22_HTCL.Model;
 using IS201_N22_HTCL.Properties;
-using OOAD_Project.Model;
 using System;
 using System.Drawing;
 using System.Drawing.Imaging;
