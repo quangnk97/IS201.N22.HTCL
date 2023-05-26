@@ -1,9 +1,9 @@
-﻿using IS201.N22.HTCL.Service;
+﻿using IS201_N22_HTCL.Service;
 using System;
 using System.Data.SqlClient;
 using System.Windows.Forms;
 
-namespace IS201.N22.HTCL
+namespace IS201_N22_HTCL
 {
     public partial class fMainPage : Form
 

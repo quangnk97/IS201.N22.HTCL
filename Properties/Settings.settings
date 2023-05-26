@@ -1,5 +1,5 @@
 ﻿<?xml version='1.0' encoding='utf-8'?>
-<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="IS201.N22.HTCL.Properties" GeneratedClassName="Settings">
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="IS201_N22_HTCL.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
     <Setting Name="DISC_SHOP_MANAGEMENTConnectionString" Type="(Connection string)" Scope="Application">

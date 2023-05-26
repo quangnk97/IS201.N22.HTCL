@@ -1,4 +1,4 @@
-﻿namespace IS201.N22.HTCL
+﻿namespace IS201_N22_HTCL
 {
     partial class fLogin
     {

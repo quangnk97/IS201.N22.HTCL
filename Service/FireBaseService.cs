@@ -1,7 +1,7 @@
 ﻿using FireSharp.Config;
 using FireSharp.Interfaces;
 using FireSharp.Response;
-using IS201.N22.HTCL.Properties;
+using IS201_N22_HTCL.Properties;
 using OOAD_Project.Model;
 using System;
 using System.Drawing;
@@ -9,7 +9,7 @@ using System.Drawing.Imaging;
 using System.IO;
 using System.Windows.Forms;
 
-namespace IS201.N22.HTCL.Service
+namespace IS201_N22_HTCL.Service
 {
     internal class FireBaseService
     {

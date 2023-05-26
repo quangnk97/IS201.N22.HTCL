@@ -1,6 +1,6 @@
 ﻿using System.Windows.Forms;
 
-namespace IS201.N22.HTCL
+namespace IS201_N22_HTCL
 {
     internal static class Program
     {

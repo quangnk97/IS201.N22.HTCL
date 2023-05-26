@@ -1,4 +1,4 @@
-﻿namespace IS201.N22.HTCL.Model
+﻿namespace IS201_N22_HTCL.Model
 {
     internal class ImageModel
     {
