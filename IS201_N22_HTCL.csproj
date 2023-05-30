@@ -106,7 +106,11 @@
     <Compile Include="fMainpage.Designer.cs">
       <DependentUpon>fMainpage.cs</DependentUpon>
     </Compile>
+    <Compile Include="Interface\ICustomer.cs" />
+    <Compile Include="Interface\IUpComingDisc.cs" />
+    <Compile Include="Model\Customer.cs" />
     <Compile Include="Model\ImageModel.cs" />
+    <Compile Include="Model\UpComingDisc.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service\ComingDisc.cs" />
