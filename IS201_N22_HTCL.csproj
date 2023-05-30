@@ -106,18 +106,40 @@
     <Compile Include="fMainpage.Designer.cs">
       <DependentUpon>fMainpage.cs</DependentUpon>
     </Compile>
+    <Compile Include="Interface\ICustomer.cs" />
+    <Compile Include="Interface\IUpComingDisc.cs" />
+    <Compile Include="Model\Customer.cs" />
     <Compile Include="Model\ImageModel.cs" />
+    <Compile Include="Model\UpComingDisc.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service\ComingDisc.cs" />
     <Compile Include="Service\FireBaseService.cs" />
     <Compile Include="Service\SQLConnection.cs" />
+    <Compile Include="UserControls\UsCtr_CmgDisc.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UsCtr_CmgDisc.Designer.cs">
+      <DependentUpon>UsCtr_CmgDisc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UsCtr_HomePage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UsCtr_HomePage.Designer.cs">
+      <DependentUpon>UsCtr_HomePage.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\UsCtr_Manage.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="UserControls\UsCtr_Manage.Designer.cs">
       <DependentUpon>UsCtr_Manage.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="fMainpage.resx">
+      <DependentUpon>fMainpage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UsCtr_CmgDisc.resx">
+      <DependentUpon>UsCtr_CmgDisc.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Resources\search-icon.png" />
     <None Include="Resources\film_poster.jpg" />
     <None Include="Resources\Cream_logo.png" />
