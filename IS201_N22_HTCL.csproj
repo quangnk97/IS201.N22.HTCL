@@ -134,11 +134,20 @@
     <Compile Include="UserControls\UsCtr_Manage.Designer.cs">
       <DependentUpon>UsCtr_Manage.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\UsCtr_Order.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UsCtr_Order.Designer.cs">
+      <DependentUpon>UsCtr_Order.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="fMainpage.resx">
       <DependentUpon>fMainpage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\UsCtr_CmgDisc.resx">
       <DependentUpon>UsCtr_CmgDisc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UsCtr_Order.resx">
+      <DependentUpon>UsCtr_Order.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Resources\search-icon.png" />
     <None Include="Resources\film_poster.jpg" />
