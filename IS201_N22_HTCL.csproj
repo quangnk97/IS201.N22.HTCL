@@ -122,12 +122,21 @@
     <Compile Include="UserControls\UsCtr_CmgDisc.Designer.cs">
       <DependentUpon>UsCtr_CmgDisc.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\UsCtr_HomePage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UsCtr_HomePage.Designer.cs">
+      <DependentUpon>UsCtr_HomePage.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\UsCtr_Manage.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="UserControls\UsCtr_Manage.Designer.cs">
       <DependentUpon>UsCtr_Manage.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="fMainpage.resx">
+      <DependentUpon>fMainpage.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControls\UsCtr_CmgDisc.resx">
       <DependentUpon>UsCtr_CmgDisc.cs</DependentUpon>
     </EmbeddedResource>

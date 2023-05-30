@@ -1,4 +1,5 @@
 ﻿using IS201_N22_HTCL.Service;
+using IS201_N22_HTCL.UserControls;
 using System;
 using System.Data.SqlClient;
 using System.Windows.Forms;
@@ -8,7 +9,7 @@ namespace IS201_N22_HTCL
     public partial class fMainPage : Form
 
     {
-        //UsCtr_HomePage HomePage;
+        UsCtr_HomePage HomePage;
         //UsCtr_Cart Cart;
         //UsCtr_Manage Manage;
         //UsCtr_Order Order;
@@ -19,7 +20,7 @@ namespace IS201_N22_HTCL
         public fMainPage(fLogin login)
         {
             InitializeComponent();
-            //HomePage = new UsCtr_HomePage();
+            HomePage = new UsCtr_HomePage();
             //Cart = new UsCtr_Cart();
             //Manage = new UsCtr_Manage();
             //Order = new UsCtr_Order();
@@ -78,6 +79,9 @@ namespace IS201_N22_HTCL
             WindowState = FormWindowState.Minimized;
         }
 
-
+        private void btnHome_Click(object sender, EventArgs e)
+        {
+            HomePage.BringToFront();
+        }
     }
 }
