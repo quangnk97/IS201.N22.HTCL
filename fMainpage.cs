@@ -11,9 +11,9 @@ namespace IS201_N22_HTCL
 
     {
         UsCtr_HomePage HomePage;
+        UsCtr_Order Order;
         //UsCtr_Cart Cart;
         //UsCtr_Manage Manage;
-        //UsCtr_Order Order;
         //ShopView Store;
         //UsCtr_UserProfilecs UserProfilecs;
         SqlCommand cmd;
@@ -24,14 +24,14 @@ namespace IS201_N22_HTCL
             HomePage = new UsCtr_HomePage();
             //Cart = new UsCtr_Cart();
             //Manage = new UsCtr_Manage();
-            //Order = new UsCtr_Order();
+            Order = new UsCtr_Order();
             //Store = new ShopView();
             //UserProfilecs = new UsCtr_UserProfilecs();
 
             pnView.Controls.Add(HomePage);
+            pnView.Controls.Add(Order);
             //pnView.Controls.Add(Cart);
             //pnView.Controls.Add(Manage);
-            //pnView.Controls.Add(Order);
             //pnView.Controls.Add(Store);
             //pnView.Controls.Add(UserProfilecs);
             //HomePage.BringToFront();
@@ -82,6 +82,11 @@ namespace IS201_N22_HTCL
         private void btnClose_Click_1(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void btnOrder_Click(object sender, EventArgs e)
+        {
+            Order.BringToFront();
         }
     }
 }

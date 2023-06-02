@@ -106,6 +106,12 @@
     <Compile Include="fMainpage.Designer.cs">
       <DependentUpon>fMainpage.cs</DependentUpon>
     </Compile>
+    <Compile Include="fOrderDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fOrderDetail.Designer.cs">
+      <DependentUpon>fOrderDetail.cs</DependentUpon>
+    </Compile>
     <Compile Include="Interface\ICustomer.cs" />
     <Compile Include="Interface\IUpComingDisc.cs" />
     <Compile Include="Model\Customer.cs" />
@@ -134,11 +140,44 @@
     <Compile Include="UserControls\UsCtr_Manage.Designer.cs">
       <DependentUpon>UsCtr_Manage.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\UsCtr_Order.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UsCtr_Order.Designer.cs">
+      <DependentUpon>UsCtr_Order.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UsCtr_OrderDetail.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UsCtr_OrderDetail.Designer.cs">
+      <DependentUpon>UsCtr_OrderDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UsCtr_RentingDetail.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UsCtr_RentingDetail.Designer.cs">
+      <DependentUpon>UsCtr_RentingDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UsCtr_ReturningDisc.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UsCtr_ReturningDisc.Designer.cs">
+      <DependentUpon>UsCtr_ReturningDisc.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="fMainpage.resx">
       <DependentUpon>fMainpage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\UsCtr_CmgDisc.resx">
       <DependentUpon>UsCtr_CmgDisc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UsCtr_Order.resx">
+      <DependentUpon>UsCtr_Order.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UsCtr_OrderDetail.resx">
+      <DependentUpon>UsCtr_OrderDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UsCtr_ReturningDisc.resx">
+      <DependentUpon>UsCtr_ReturningDisc.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Resources\search-icon.png" />
     <None Include="Resources\film_poster.jpg" />
