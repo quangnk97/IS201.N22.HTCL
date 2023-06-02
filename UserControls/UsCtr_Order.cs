@@ -38,7 +38,7 @@ namespace IS201_N22_HTCL.UserControls
             }
             tbxSearch.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             tbxSearch.AutoCompleteSource = AutoCompleteSource.CustomSource;
-            tbxSearch.AutoCompleteCustomSource = auto;
+            //tbxSearch.AutoCompleteCustomSource = auto;
             con.Close();
         }
 
@@ -54,22 +54,16 @@ namespace IS201_N22_HTCL.UserControls
                                          "where RENT.CUSTOMER_ID = USERS.USER_ID " +
                                          "and RENT.STATUS = STATUS.STATUS_ID", con);
 
-            // Bộ phát sinh lệnh
             SqlCommandBuilder cmd = new SqlCommandBuilder(adapter);
 
-            // Khởi tạo bảng 
             dataTable = new DataTable();
 
-            // Gán dữ liệu cho dataTable
             adapter.FillSchema(dataTable, SchemaType.Mapped);
 
-            // Lấy dữ liệu đổ vào dataTable 
             adapter.Fill(dataTable);
 
-            // Gán dữ liệu nguồn cho DataGridView
             gvOrder.DataSource = dataTable;
 
-            // Gán nguồn
             current = BindingContext[dataTable];
         }
 
@@ -79,8 +73,8 @@ namespace IS201_N22_HTCL.UserControls
                 return;
             int ID = int.Parse(gvOrder.Rows[e.RowIndex].Cells[0].Value.ToString());
             string type = gvOrder.Rows[e.RowIndex].Cells[6].Value.ToString();
-            //fOrderDetail fOrderDetail = new fOrderDetail(ID, type);
-            //fOrderDetail.ShowDialog();
+            fOrderDetail fOrderDetail = new fOrderDetail(ID, type);
+            fOrderDetail.ShowDialog();
         }
 
         private void timer2_Tick(object sender, EventArgs e)
