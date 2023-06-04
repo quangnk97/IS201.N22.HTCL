@@ -1199,7 +1199,7 @@
             this.gvStaff.ThemeStyle.RowsStyle.Height = 70;
             this.gvStaff.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.gvStaff.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            //this.gvStaff.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gvStaff_CellContentClick);
+            this.gvStaff.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gvStaff_CellContentClick);
             // 
             // Id
             // 
@@ -1321,7 +1321,7 @@
             this.btnAddStaff.Size = new System.Drawing.Size(281, 49);
             this.btnAddStaff.TabIndex = 17;
             this.btnAddStaff.Text = "Add";
-            //this.btnAddStaff.Click += new System.EventHandler(this.btnAddStaff_Click);
+            this.btnAddStaff.Click += new System.EventHandler(this.btnAddStaff_Click);
             // 
             // cbPosition
             // 
@@ -1373,7 +1373,7 @@
             this.tbPhonenum.ShadowDecoration.BorderRadius = 200;
             this.tbPhonenum.Size = new System.Drawing.Size(210, 41);
             this.tbPhonenum.TabIndex = 3;
-            //this.tbPhonenum.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbPhonenum_KeyPress);
+            this.tbPhonenum.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbPhonenum_KeyPress);
             // 
             // tbUsername
             // 
@@ -1586,7 +1586,7 @@
             this.tbIDnum.ShadowDecoration.BorderRadius = 200;
             this.tbIDnum.Size = new System.Drawing.Size(402, 41);
             this.tbIDnum.TabIndex = 3;
-            //this.tbIDnum.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbIDnum_KeyPress);
+            this.tbIDnum.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbIDnum_KeyPress);
             // 
             // label5
             // 
