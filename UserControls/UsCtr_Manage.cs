@@ -38,6 +38,10 @@ namespace IS201_N22_HTCL.UserControls
             cbMode.SelectedIndex = 0;
             cbValues.SelectedIndex = 0;
 
+            if (fLogin.permission != "Admin")
+            {
+                tabControl.TabPages.RemoveByKey("Staff");
+            }
         }
 
         private void LoadDataToSearchBox()
@@ -446,6 +450,10 @@ namespace IS201_N22_HTCL.UserControls
 
         private void LoadDataStaff()
         {
+            if (fLogin.permission != "Admin")
+            {
+                btnAddStaff.Enabled = false;
+            }
             con.Open();
             string sql = "select USER_NAME, USER_FULLNAME,USER_ADDRESS, POSITION_NAME from USERS, POSITION where USERS.USER_POSITION = POSITION.POSITION_ID and POSITION_NAME <> 'Customer'";
             cmd = new SqlCommand(sql, con);
