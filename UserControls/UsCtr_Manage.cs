@@ -33,9 +33,11 @@ namespace IS201_N22_HTCL.UserControls
             LoadDataDiscImport();
             LoadDataToComboboxDisc();
             LoadDataToSearchBox();
+            LoadDataStaff();
 
             cbMode.SelectedIndex = 0;
             cbValues.SelectedIndex = 0;
+
         }
 
         private void LoadDataToSearchBox()
@@ -398,6 +400,108 @@ namespace IS201_N22_HTCL.UserControls
             else
             {
                 tbPassword.PasswordChar = '•';
+            }
+        }
+
+        private void btnAddStaff_Click(object sender, System.EventArgs e)
+        {
+            if (tbMail.Text == "" || tbUsername.Text == ""
+                || tbPassword.Text == "" || tbIDnum.Text == "" || tbPhonenum.Text == "" || tbAddress.Text == "")
+            {
+                messageBox.Caption = "Please fill out the information";
+                messageBox.Show();
+            }
+            else
+            {
+                int pos = GetPositionID(cbPosition.SelectedItem.ToString());
+                con.Open();
+                string check = "SELECT USER_NAME FROM USERS WHERE USER_NAME = '" + tbUsername.Text.Trim() + "'";
+                cmd = new SqlCommand(check, con);
+                SqlDataReader dr = cmd.ExecuteReader();
+
+                if (dr.HasRows)
+                {
+                    messageBox.Caption = "Username is existed!\nTry other username!";
+                    messageBox.Show();
+                }
+                else
+                {
+                    con.Close();
+                    con.Open();
+                    string register = "INSERT INTO USERS (USER_NAME,USER_PASSWORD,USER_FULLNAME, USER_MAIL,USER_ID_NUMBER,USER_PHONE,USER_POSITION, USER_ADDRESS) " +
+                        "VALUES (N'" + tbUsername.Text.Trim() + "','" + tbPassword.Text.Trim() + "','" + tbFullname.Text.Trim() + "','" +
+                           tbFullname.Text.Trim() + "'"
+                        + ",N'" + tbIDnum.Text.Trim() + "',N'" + tbPhonenum.Text + "'," + pos + ",N'" + tbAddress.Text.Trim() + "')";
+                    cmd = new SqlCommand(register, con);
+                    cmd.ExecuteNonQuery();
+
+                    messageBox.Caption = "Create new account successfully";
+                    messageBox.Show();
+                }
+
+                con.Close();
+                LoadDataStaff();
+            }
+        }
+
+        private void LoadDataStaff()
+        {
+            con.Open();
+            string sql = "select USER_NAME, USER_FULLNAME,USER_ADDRESS, POSITION_NAME from USERS, POSITION where USERS.USER_POSITION = POSITION.POSITION_ID and POSITION_NAME <> 'Customer'";
+            cmd = new SqlCommand(sql, con);
+            cmd.CommandType = CommandType.Text;
+            da = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            con.Close();
+            gvStaff.DataSource = dt;
+
+
+        }
+
+        private void tbIDnum_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
+                e.Handled = true;
+        }
+
+        private void tbPhonenum_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
+                e.Handled = true;
+        }
+
+        private void gvStaff_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            string position = "";
+            con.Open();
+            string loadDT = "select * from USERS, POSITION where USERS.USER_POSITION = POSITION.POSITION_ID and USER_NAME = N'" + gvStaff.Rows[e.RowIndex].Cells[0].Value.ToString() + "'";
+            SqlCommand cmd = new SqlCommand(loadDT, con);
+            SqlDataReader reader = cmd.ExecuteReader();
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    tbUsername.Text = (string)reader["USER_NAME"];
+                    tbPassword.Text = (string)reader["USER_PASSWORD"];
+                    tbFullname.Text = (string)reader["USER_FULLNAME"];
+                    tbAddress.Text = (string)reader["USER_ADDRESS"];
+                    tbMail.Text = (string)reader["USER_MAIL"];
+                    tbIDnum.Text = (string)reader["USER_ID_NUMBER"];
+                    tbPhonenum.Text = (string)reader["USER_PHONE"];
+                    position = (string)reader["POSITION_NAME"];
+                }
+                reader.Close();
+            }
+            con.Close();
+
+            if (position == "Staff")
+            {
+                cbPosition.SelectedIndex = 0;
+            }
+            else
+            {
+                cbPosition.SelectedIndex = 1;
             }
         }
     }
