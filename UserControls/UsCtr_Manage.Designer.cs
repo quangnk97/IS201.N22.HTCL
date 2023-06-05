@@ -199,7 +199,7 @@
             this.btnCreateReport.Size = new System.Drawing.Size(219, 49);
             this.btnCreateReport.TabIndex = 16;
             this.btnCreateReport.Text = "Create report";
-            //this.btnCreateReport.Click += new System.EventHandler(this.btnCreateReport_Click);
+            this.btnCreateReport.Click += new System.EventHandler(this.btnCreateReport_Click);
             // 
             // btnCreateChart
             // 
@@ -218,7 +218,7 @@
             this.btnCreateChart.Size = new System.Drawing.Size(219, 49);
             this.btnCreateChart.TabIndex = 16;
             this.btnCreateChart.Text = "Create chart";
-            //this.btnCreateChart.Click += new System.EventHandler(this.btnCreateChart_Click);
+            this.btnCreateChart.Click += new System.EventHandler(this.btnCreateChart_Click);
             // 
             // lbValues
             // 
@@ -279,7 +279,7 @@
             this.cbMode.Name = "cbMode";
             this.cbMode.Size = new System.Drawing.Size(276, 36);
             this.cbMode.TabIndex = 11;
-            //this.cbMode.SelectedIndexChanged += new System.EventHandler(this.cbMode_SelectedIndexChanged);
+            this.cbMode.SelectedIndexChanged += new System.EventHandler(this.cbMode_SelectedIndexChanged);
             // 
             // cartesianChart1
             // 
