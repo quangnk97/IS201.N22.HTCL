@@ -512,5 +512,188 @@ namespace IS201_N22_HTCL.UserControls
                 cbPosition.SelectedIndex = 1;
             }
         }
+
+        private void btnCreateChart_Click(object sender, EventArgs e)
+        {
+            string currentYear = DateTime.Now.Year.ToString();
+            var values = new ChartValues<int>();
+            var dates = new List<string>();
+            string get = "select MONTH(return_date) as DATE, sum(RETURN_PRICE) as REVENUE " +
+                       "from RETURN_DISC where year(return_date) = " + currentYear + " group by MONTH(return_date)";
+            if (cbMode.SelectedIndex == 1)
+            {
+                get = "select datepart(quarter,return_date) as DATE, sum(RETURN_PRICE) as REVENUE from RETURN_DISC " +
+                    "where YEAR( return_date) = " + currentYear + " group by datepart(quarter,return_date)";
+            }
+            else if (cbMode.SelectedIndex == 2)
+            {
+                get = "select YEAR(return_date) as DATE, sum(RETURN_PRICE) as REVENUE from RETURN_DISC group by YEAR(return_date)";
+            }
+            con.Open();
+            cmd = new SqlCommand(get, con);
+            SqlDataReader dr = cmd.ExecuteReader();
+
+            if (dr.HasRows)
+            {
+                while (dr.Read())
+                {
+                    values.Add((int)dr["REVENUE"]);
+                    dates.Add(dr["DATE"].ToString());
+                }
+                dr.Close();
+            }
+            con.Close();
+            cartesianChart1.Series.Clear();
+            cartesianChart1.Series = new SeriesCollection()
+            {
+                new LineSeries
+                {
+                    Title = "Revenue",
+                    Values = values
+                },
+
+            };
+            cartesianChart1.AxisX.Clear();
+            if (cbMode.SelectedIndex == 0)
+            {
+                cartesianChart1.AxisX.Add(new Axis
+                {
+
+                    Labels = new[] { "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" }
+                });
+            }
+            else
+            {
+                cartesianChart1.AxisX.Add(new Axis
+                {
+
+                    Labels = dates
+                });
+            }
+            cartesianChart1.AxisY.Clear();
+            cartesianChart1.AxisY.Add(new Axis
+            {
+                Title = "Revenue",
+                LabelFormatter = value => value.ToString("C")
+            });
+
+            cartesianChart1.LegendLocation = LegendLocation.None;
+        }
+
+        private void cbMode_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            cbValues.Items.Clear();
+            if (cbMode.SelectedIndex == 0)
+            {
+                lbValues.Text = "Choose month";
+                Object[] o = new Object[12];
+                for (int i = 0; i < 12; i++)
+                {
+                    o[i] = i + 1;
+                }
+                cbValues.Items.AddRange(o);
+
+            }
+            else if (cbMode.SelectedIndex == 1)
+            {
+                lbValues.Text = "Choose quarter";
+                Object[] o = new Object[4];
+                for (int i = 0; i < 4; i++)
+                {
+                    o[i] = i + 1;
+                }
+                cbValues.Items.AddRange(o);
+            }
+            else
+            {
+                lbValues.Text = "Choose year";
+                Object[] o = new Object[2];
+                o[0] = 2022;
+                o[1] = 2023;
+                cbValues.Items.AddRange(o);
+            }
+            cbValues.SelectedIndex = 0;
+
+        }
+
+        private void btnCreateReport_Click(object sender, EventArgs e)
+        {
+            string reportTitle = "REPORT";
+            string sql = "select RETURN_DATE, TOTAL_PRICE, USER_FULLNAME from RETURN_DISC,RENT, USERS " +
+                "where RETURN_DISC.RENT_ID = RENT.RENT_ID and USERS.USER_ID = RENT.CUSTOMER_ID";
+            if (cbMode.SelectedIndex == 0)
+            {
+                sql += " and month(return_date) = " + cbValues.Text + " and year(return_date) = " + DateTime.Now.Year.ToString();
+                reportTitle += " IN MONTH " + cbValues.Text;
+            }
+            else if (cbMode.SelectedIndex == 1)
+            {
+                sql += " and datepart(quarter,return_date) = " + cbValues.Text;
+                reportTitle += " IN QUARTER " + cbValues.Text + " OF YEAR " + DateTime.Now.Year.ToString();
+            }
+            else
+            {
+                sql += " and year(return_date) = = " + cbValues.Text;
+                reportTitle += " IN YEAR " + cbValues.Text;
+            }
+            try
+            {
+                DataSet ds = new DataSet();
+                int i = 0;
+                int yPoint = 0;
+                string customerName = null;
+                string returnDate = null;
+                string totalPrice = null;
+
+
+                con.Open();
+                cmd = new SqlCommand(sql, con);
+                adapter.SelectCommand = cmd;
+                adapter.Fill(ds);
+                con.Close();
+
+                yPoint += 20;
+                PdfDocument pdf = new PdfDocument();
+                pdf.Info.Title = "Database to PDF";
+                PdfPage pdfPage = pdf.AddPage();
+                XGraphics graph = XGraphics.FromPdfPage(pdfPage);
+                XFont font = new XFont("Verdana", 20, XFontStyle.Regular);
+
+                graph.DrawString(reportTitle, font, XBrushes.Black, new XRect(0, yPoint, pdfPage.Width.Point, pdfPage.Height.Point), XStringFormats.TopCenter);
+                yPoint += 80;
+
+                graph.DrawString("Customer", font, XBrushes.Black, new XRect(40, yPoint, pdfPage.Width.Point, pdfPage.Height.Point), XStringFormats.TopLeft);
+
+                graph.DrawString("Date", font, XBrushes.Black, new XRect(320, yPoint, pdfPage.Width.Point, pdfPage.Height.Point), XStringFormats.TopLeft);
+
+                graph.DrawString("Revenue", font, XBrushes.Black, new XRect(480, yPoint, pdfPage.Width.Point, pdfPage.Height.Point), XStringFormats.TopLeft);
+                yPoint += 30;
+
+                for (i = 0; i < ds.Tables[0].Rows.Count; i++)
+                {
+                    customerName = ds.Tables[0].Rows[i].ItemArray[2].ToString();
+                    returnDate = ds.Tables[0].Rows[i].ItemArray[0].ToString();
+                    totalPrice = ds.Tables[0].Rows[i].ItemArray[1].ToString();
+
+                    returnDate = returnDate.Replace(" 12:00:00 AM", "");
+
+
+                    graph.DrawString(customerName, font, XBrushes.Black, new XRect(40, yPoint, pdfPage.Width.Point, pdfPage.Height.Point), XStringFormats.TopLeft);
+
+                    graph.DrawString(returnDate, font, XBrushes.Black, new XRect(320, yPoint, pdfPage.Width.Point, pdfPage.Height.Point), XStringFormats.TopLeft);
+                    graph.DrawString(totalPrice, font, XBrushes.Black, new XRect(480, yPoint, pdfPage.Width.Point, pdfPage.Height.Point), XStringFormats.TopLeft);
+
+
+                    yPoint = yPoint + 40;
+                }
+
+                string pdfFilename = "Report.pdf";
+                pdf.Save(pdfFilename);
+                Process.Start(pdfFilename);
+            }
+            catch (Exception ex)
+            {
+            }
+        }
     }
 }
