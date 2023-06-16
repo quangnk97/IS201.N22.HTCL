@@ -94,6 +94,18 @@
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="fChangePassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fChangePassword.Designer.cs">
+      <DependentUpon>fChangePassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fForgotPassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fForgotPassword.Designer.cs">
+      <DependentUpon>fForgotPassword.cs</DependentUpon>
+    </Compile>
     <Compile Include="fLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -164,6 +176,12 @@
     <Compile Include="UserControls\UsCtr_ReturningDisc.Designer.cs">
       <DependentUpon>UsCtr_ReturningDisc.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="fChangePassword.resx">
+      <DependentUpon>fChangePassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fForgotPassword.resx">
+      <DependentUpon>fForgotPassword.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="fMainpage.resx">
       <DependentUpon>fMainpage.cs</DependentUpon>
     </EmbeddedResource>
