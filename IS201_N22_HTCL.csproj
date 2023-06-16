@@ -176,6 +176,18 @@
     <Compile Include="UserControls\UsCtr_ReturningDisc.Designer.cs">
       <DependentUpon>UsCtr_ReturningDisc.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\UsCtr_Statistic.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UsCtr_Statistic.Designer.cs">
+      <DependentUpon>UsCtr_Statistic.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UsCtr_UserProfilecs.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UsCtr_UserProfilecs.Designer.cs">
+      <DependentUpon>UsCtr_UserProfilecs.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="fChangePassword.resx">
       <DependentUpon>fChangePassword.cs</DependentUpon>
     </EmbeddedResource>
@@ -196,6 +208,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\UsCtr_ReturningDisc.resx">
       <DependentUpon>UsCtr_ReturningDisc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UsCtr_UserProfilecs.resx">
+      <DependentUpon>UsCtr_UserProfilecs.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Resources\search-icon.png" />
     <None Include="Resources\film_poster.jpg" />
