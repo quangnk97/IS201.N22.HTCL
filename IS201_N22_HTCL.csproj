@@ -134,6 +134,12 @@
     <Compile Include="Service\ComingDisc.cs" />
     <Compile Include="Service\FireBaseService.cs" />
     <Compile Include="Service\SQLConnection.cs" />
+    <Compile Include="UserControls\UsCtr_Cart.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UsCtr_Cart.Designer.cs">
+      <DependentUpon>UsCtr_Cart.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\UsCtr_CmgDisc.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -196,6 +202,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="fMainpage.resx">
       <DependentUpon>fMainpage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UsCtr_Cart.resx">
+      <DependentUpon>UsCtr_Cart.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\UsCtr_CmgDisc.resx">
       <DependentUpon>UsCtr_CmgDisc.cs</DependentUpon>
