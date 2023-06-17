@@ -5,7 +5,7 @@ namespace IS201_N22_HTCL.Service
     internal class SQLConnection
     {
 
-        public static string connectionString = @"Data Source=BLACKY\BLACKY;Initial Catalog=DISC_SHOP_MANAGEMENT;Integrated Security=True";
+        public static string connectionString = @"Data Source=DESKTOP-9GL03A9;Initial Catalog=DISC_SHOP_MANAGEMEN;Integrated Security=True";
         public static string GetFieldValues(string SQL)
         {
             string result = "";

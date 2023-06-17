@@ -62,11 +62,11 @@ namespace IS201_N22_HTCL.UserControls
             }
             tbxDisc.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             tbxDisc.AutoCompleteSource = AutoCompleteSource.CustomSource;
-            tbxDisc.AutoCompleteCustomSource = auto;
+            //tbxDisc.AutoCompleteCustomSource = auto;
 
             tbxSearchDisc.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             tbxSearchDisc.AutoCompleteSource = AutoCompleteSource.CustomSource;
-            tbxSearchDisc.AutoCompleteCustomSource = auto;
+            //tbxSearchDisc.AutoCompleteCustomSource = auto;
             con.Close();
 
         }
