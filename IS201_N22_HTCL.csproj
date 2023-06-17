@@ -180,6 +180,12 @@
     <Compile Include="UserControls\UsCtr_HomePage.Designer.cs">
       <DependentUpon>UsCtr_HomePage.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\UsCtr_Manage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UsCtr_Manage.Designer.cs">
+      <DependentUpon>UsCtr_Manage.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\UsCtr_Order.cs">
       <SubType>UserControl</SubType>
     </Compile>

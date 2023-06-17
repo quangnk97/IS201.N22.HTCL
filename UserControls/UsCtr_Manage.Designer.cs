@@ -56,7 +56,6 @@
             this.label10 = new System.Windows.Forms.Label();
             this.cbValues = new Guna.UI2.WinForms.Guna2ComboBox();
             this.cbMode = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.cartesianChart1 = new LiveCharts.WinForms.CartesianChart();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.nbAmountIm = new Guna.UI2.WinForms.Guna2NumericUpDown();
             this.btnImportDisc = new Guna.UI2.WinForms.Guna2Button();
@@ -67,6 +66,7 @@
             this.label17 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
+            this.pbDiscIm = new Guna.UI2.WinForms.Guna2PictureBox();
             this.tbxSearchDisc = new Guna.UI2.WinForms.Guna2TextBox();
             this.gvListDisc = new Guna.UI2.WinForms.Guna2DataGridView();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -95,6 +95,7 @@
             this.label11 = new System.Windows.Forms.Label();
             this.tbDiscID = new Guna.UI2.WinForms.Guna2TextBox();
             this.label8 = new System.Windows.Forms.Label();
+            this.pcDisc = new Guna.UI2.WinForms.Guna2PictureBox();
             this.tbxDisc = new Guna.UI2.WinForms.Guna2TextBox();
             this.Staff = new System.Windows.Forms.TabPage();
             this.gvStaff = new Guna.UI2.WinForms.Guna2DataGridView();
@@ -124,22 +125,20 @@
             this.label3 = new System.Windows.Forms.Label();
             this.tabControl = new Guna.UI2.WinForms.Guna2TabControl();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.pcDisc = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.pbDiscIm = new Guna.UI2.WinForms.Guna2PictureBox();
             this.tabPage3.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nbAmountIm)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbDiscIm)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvListDisc)).BeginInit();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nbAmount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvDisc)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcDisc)).BeginInit();
             this.Staff.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gvStaff)).BeginInit();
             this.guna2Panel1.SuspendLayout();
             this.tabControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pcDisc)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbDiscIm)).BeginInit();
             this.SuspendLayout();
             // 
             // messageBox
@@ -288,15 +287,6 @@
             this.cbMode.TabIndex = 11;
             this.cbMode.SelectedIndexChanged += new System.EventHandler(this.cbMode_SelectedIndexChanged);
             // 
-            // cartesianChart1
-            // 
-            this.cartesianChart1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.cartesianChart1.Location = new System.Drawing.Point(23, 57);
-            this.cartesianChart1.Name = "cartesianChart1";
-            this.cartesianChart1.Size = new System.Drawing.Size(1217, 505);
-            this.cartesianChart1.TabIndex = 7;
-            this.cartesianChart1.Text = "cartesianChart1";
-            // 
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.Color.White;
@@ -309,9 +299,9 @@
             this.tabPage1.Controls.Add(this.label17);
             this.tabPage1.Controls.Add(this.label18);
             this.tabPage1.Controls.Add(this.label19);
+            this.tabPage1.Controls.Add(this.pbDiscIm);
             this.tabPage1.Controls.Add(this.tbxSearchDisc);
             this.tabPage1.Controls.Add(this.gvListDisc);
-            this.tabPage1.Controls.Add(this.pbDiscIm);
             this.tabPage1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.tabPage1.Location = new System.Drawing.Point(4, 44);
             this.tabPage1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -483,6 +473,18 @@
             this.label19.TabIndex = 23;
             this.label19.Text = "Disc ID";
             // 
+            // pbDiscIm
+            // 
+            this.pbDiscIm.BorderRadius = 15;
+            this.pbDiscIm.ImageRotate = 0F;
+            this.pbDiscIm.Location = new System.Drawing.Point(31, 468);
+            this.pbDiscIm.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pbDiscIm.Name = "pbDiscIm";
+            this.pbDiscIm.Size = new System.Drawing.Size(300, 347);
+            this.pbDiscIm.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbDiscIm.TabIndex = 13;
+            this.pbDiscIm.TabStop = false;
+            // 
             // tbxSearchDisc
             // 
             this.tbxSearchDisc.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(110)))), ((int)(((byte)(176)))));
@@ -498,6 +500,7 @@
             this.tbxSearchDisc.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbxSearchDisc.ForeColor = System.Drawing.Color.Black;
             this.tbxSearchDisc.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.tbxSearchDisc.IconRight = global::IS201_N22_HTCL.Properties.Resources.search_icon;
             this.tbxSearchDisc.IconRightOffset = new System.Drawing.Point(13, 0);
             this.tbxSearchDisc.IconRightSize = new System.Drawing.Size(25, 25);
             this.tbxSearchDisc.Location = new System.Drawing.Point(1080, 18);
@@ -659,8 +662,8 @@
             this.tabPage2.Controls.Add(this.label11);
             this.tabPage2.Controls.Add(this.tbDiscID);
             this.tabPage2.Controls.Add(this.label8);
-            this.tabPage2.Controls.Add(this.tbxDisc);
             this.tabPage2.Controls.Add(this.pcDisc);
+            this.tabPage2.Controls.Add(this.tbxDisc);
             this.tabPage2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.tabPage2.Location = new System.Drawing.Point(4, 44);
             this.tabPage2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
@@ -1072,6 +1075,19 @@
             this.label8.TabIndex = 10;
             this.label8.Text = "Disc Name";
             // 
+            // pcDisc
+            // 
+            this.pcDisc.BorderRadius = 15;
+            this.pcDisc.ImageRotate = 0F;
+            this.pcDisc.Location = new System.Drawing.Point(37, 450);
+            this.pcDisc.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pcDisc.Name = "pcDisc";
+            this.pcDisc.Size = new System.Drawing.Size(311, 377);
+            this.pcDisc.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pcDisc.TabIndex = 8;
+            this.pcDisc.TabStop = false;
+            this.pcDisc.Click += new System.EventHandler(this.pcDisc_Click);
+            // 
             // tbxDisc
             // 
             this.tbxDisc.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(110)))), ((int)(((byte)(176)))));
@@ -1087,6 +1103,7 @@
             this.tbxDisc.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbxDisc.ForeColor = System.Drawing.Color.Black;
             this.tbxDisc.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.tbxDisc.IconRight = global::IS201_N22_HTCL.Properties.Resources.search_icon;
             this.tbxDisc.IconRightOffset = new System.Drawing.Point(13, 0);
             this.tbxDisc.IconRightSize = new System.Drawing.Size(25, 25);
             this.tbxDisc.Location = new System.Drawing.Point(1075, 20);
@@ -1666,40 +1683,15 @@
             this.chart1.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
             this.chart1.Legends.Add(legend1);
-            this.chart1.Location = new System.Drawing.Point(46, 30);
+            this.chart1.Location = new System.Drawing.Point(28, 20);
             this.chart1.Name = "chart1";
             series1.ChartArea = "ChartArea1";
             series1.Legend = "Legend1";
             series1.Name = "Revenue";
             this.chart1.Series.Add(series1);
-            this.chart1.Size = new System.Drawing.Size(1532, 685);
+            this.chart1.Size = new System.Drawing.Size(1611, 671);
             this.chart1.TabIndex = 17;
             this.chart1.Text = "chart1";
-            // 
-            // pcDisc
-            // 
-            this.pcDisc.BorderRadius = 15;
-            this.pcDisc.ImageRotate = 0F;
-            this.pcDisc.Location = new System.Drawing.Point(37, 450);
-            this.pcDisc.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pcDisc.Name = "pcDisc";
-            this.pcDisc.Size = new System.Drawing.Size(311, 377);
-            this.pcDisc.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pcDisc.TabIndex = 8;
-            this.pcDisc.TabStop = false;
-            this.pcDisc.Click += new System.EventHandler(this.pcDisc_Click);
-            // 
-            // pbDiscIm
-            // 
-            this.pbDiscIm.BorderRadius = 15;
-            this.pbDiscIm.ImageRotate = 0F;
-            this.pbDiscIm.Location = new System.Drawing.Point(31, 468);
-            this.pbDiscIm.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pbDiscIm.Name = "pbDiscIm";
-            this.pbDiscIm.Size = new System.Drawing.Size(300, 347);
-            this.pbDiscIm.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbDiscIm.TabIndex = 13;
-            this.pbDiscIm.TabStop = false;
             // 
             // UsCtr_Manage
             // 
@@ -1715,19 +1707,19 @@
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nbAmountIm)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbDiscIm)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvListDisc)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nbAmount)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvDisc)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcDisc)).EndInit();
             this.Staff.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gvStaff)).EndInit();
             this.guna2Panel1.ResumeLayout(false);
             this.guna2Panel1.PerformLayout();
             this.tabControl.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pcDisc)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbDiscIm)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1743,6 +1735,7 @@
         private System.Windows.Forms.Label label10;
         private Guna.UI2.WinForms.Guna2ComboBox cbValues;
         private Guna.UI2.WinForms.Guna2ComboBox cbMode;
+        private LiveCharts.WinForms.CartesianChart cartesianChart1;
         private System.Windows.Forms.TabPage tabPage1;
         private Guna.UI2.WinForms.Guna2NumericUpDown nbAmountIm;
         private Guna.UI2.WinForms.Guna2Button btnImportDisc;
