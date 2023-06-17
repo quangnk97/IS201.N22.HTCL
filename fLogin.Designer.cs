@@ -1,4 +1,6 @@
-﻿namespace IS201_N22_HTCL
+﻿using IS201_N22_HTCL.Properties;
+
+namespace IS201_N22_HTCL
 {
     partial class fLogin
     {
