@@ -1,15 +1,4 @@
-﻿using IS201_N22_HTCL.Service;
-using PdfSharp.Drawing;
-using PdfSharp.Pdf;
-using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.SqlClient;
-using System.Diagnostics;
-using System.Drawing;
-using System.Windows.Forms;
-
-namespace IS201_N22_HTCL.UserControls
+﻿namespace IS201_N22_HTCL.UserControls
 {
     public partial class UsCtr_Manage : UserControl
     {
@@ -59,6 +48,9 @@ namespace IS201_N22_HTCL.UserControls
             //tbxDisc.AutoCompleteSource = AutoCompleteSource.CustomSource;
             //tbxDisc.AutoCompleteCustomSource = auto;
 
+            tbxSearchDisc.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            tbxSearchDisc.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            tbxSearchDisc.AutoCompleteCustomSource = auto;
             con.Close();
 
         }

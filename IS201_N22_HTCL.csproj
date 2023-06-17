@@ -110,6 +110,18 @@
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="fChangePassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fChangePassword.Designer.cs">
+      <DependentUpon>fChangePassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fForgotPassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fForgotPassword.Designer.cs">
+      <DependentUpon>fForgotPassword.cs</DependentUpon>
+    </Compile>
     <Compile Include="fLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -138,11 +150,23 @@
     <Compile Include="Service\ComingDisc.cs" />
     <Compile Include="Service\FireBaseService.cs" />
     <Compile Include="Service\SQLConnection.cs" />
-    <Compile Include="UserControls\UsCtr_Manage.cs">
+    <Compile Include="UserControls\ShopItem.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControls\UsCtr_Manage.Designer.cs">
-      <DependentUpon>UsCtr_Manage.cs</DependentUpon>
+    <Compile Include="UserControls\ShopItem.Designer.cs">
+      <DependentUpon>ShopItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ShopView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ShopView.Designer.cs">
+      <DependentUpon>ShopView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UsCtr_Cart.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UsCtr_Cart.Designer.cs">
+      <DependentUpon>UsCtr_Cart.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\UsCtr_CmgDisc.cs">
       <SubType>UserControl</SubType>
@@ -180,8 +204,35 @@
     <Compile Include="UserControls\UsCtr_ReturningDisc.Designer.cs">
       <DependentUpon>UsCtr_ReturningDisc.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\UsCtr_Statistic.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UsCtr_Statistic.Designer.cs">
+      <DependentUpon>UsCtr_Statistic.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UsCtr_UserProfilecs.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UsCtr_UserProfilecs.Designer.cs">
+      <DependentUpon>UsCtr_UserProfilecs.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="fChangePassword.resx">
+      <DependentUpon>fChangePassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fForgotPassword.resx">
+      <DependentUpon>fForgotPassword.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="fMainpage.resx">
       <DependentUpon>fMainpage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ShopItem.resx">
+      <DependentUpon>ShopItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ShopView.resx">
+      <DependentUpon>ShopView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UsCtr_Cart.resx">
+      <DependentUpon>UsCtr_Cart.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\UsCtr_CmgDisc.resx">
       <DependentUpon>UsCtr_CmgDisc.cs</DependentUpon>
@@ -197,6 +248,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\UsCtr_ReturningDisc.resx">
       <DependentUpon>UsCtr_ReturningDisc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UsCtr_UserProfilecs.resx">
+      <DependentUpon>UsCtr_UserProfilecs.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Resources\search-icon.png" />
     <None Include="Resources\film_poster.jpg" />

@@ -56,6 +56,7 @@
             this.label10 = new System.Windows.Forms.Label();
             this.cbValues = new Guna.UI2.WinForms.Guna2ComboBox();
             this.cbMode = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.cartesianChart1 = new LiveCharts.WinForms.CartesianChart();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.nbAmountIm = new Guna.UI2.WinForms.Guna2NumericUpDown();
             this.btnImportDisc = new Guna.UI2.WinForms.Guna2Button();
@@ -286,6 +287,15 @@
             this.cbMode.Size = new System.Drawing.Size(367, 36);
             this.cbMode.TabIndex = 11;
             this.cbMode.SelectedIndexChanged += new System.EventHandler(this.cbMode_SelectedIndexChanged);
+            // 
+            // cartesianChart1
+            // 
+            this.cartesianChart1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.cartesianChart1.Location = new System.Drawing.Point(23, 57);
+            this.cartesianChart1.Name = "cartesianChart1";
+            this.cartesianChart1.Size = new System.Drawing.Size(1217, 505);
+            this.cartesianChart1.TabIndex = 7;
+            this.cartesianChart1.Text = "cartesianChart1";
             // 
             // tabPage1
             // 
