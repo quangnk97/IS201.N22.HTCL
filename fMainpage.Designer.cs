@@ -47,7 +47,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.guna2Panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnUserProfile)).BeginInit();
-            this.pnView.SuspendLayout();
             this.SuspendLayout();
             // 
             // guna2BorderlessForm1
@@ -150,6 +149,7 @@
             this.btnCart.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCart.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCart.UseVisualStyleBackColor = false;
+            this.btnCart.Click += new System.EventHandler(this.btnCart_Click);
             // 
             // btnStore
             // 
@@ -175,6 +175,7 @@
             this.btnStore.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnStore.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnStore.UseVisualStyleBackColor = false;
+            this.btnStore.Click += new System.EventHandler(this.btnStore_Click);
             // 
             // btnHome
             // 
@@ -264,6 +265,7 @@
             this.btnUserProfile.Size = new System.Drawing.Size(97, 86);
             this.btnUserProfile.TabIndex = 7;
             this.btnUserProfile.TabStop = false;
+            this.btnUserProfile.Click += new System.EventHandler(this.btnUserProfile_Click);
             // 
             // btnMinimize
             // 
@@ -296,7 +298,7 @@
             this.btnClose.Size = new System.Drawing.Size(36, 31);
             this.btnClose.TabIndex = 5;
             this.btnClose.UseVisualStyleBackColor = true;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click_1);
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // pnView
             // 
@@ -307,8 +309,6 @@
             this.pnView.Name = "pnView";
             this.pnView.Size = new System.Drawing.Size(1691, 946);
             this.pnView.TabIndex = 7;
-            // 
-           
             // 
             // fMainPage
             // 
@@ -327,7 +327,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.guna2Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.btnUserProfile)).EndInit();
-            this.pnView.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
