@@ -47,6 +47,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.guna2Panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnUserProfile)).BeginInit();
+            this.pnView.SuspendLayout();
             this.SuspendLayout();
             // 
             // guna2BorderlessForm1
@@ -97,6 +98,7 @@
             this.btnManage.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnManage.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnManage.UseVisualStyleBackColor = false;
+            this.btnManage.Click += new System.EventHandler(this.btnManage_Click);
             // 
             // btnOrder
             // 
@@ -306,6 +308,8 @@
             this.pnView.Size = new System.Drawing.Size(1691, 946);
             this.pnView.TabIndex = 7;
             // 
+           
+            // 
             // fMainPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -323,6 +327,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.guna2Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.btnUserProfile)).EndInit();
+            this.pnView.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -344,6 +349,5 @@
 
         private FontAwesome.Sharp.IconButton btnHome;
         private System.Windows.Forms.PictureBox btnUserProfile;
-
     }
 }

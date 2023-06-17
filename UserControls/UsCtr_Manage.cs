@@ -1,6 +1,4 @@
 ﻿using IS201_N22_HTCL.Service;
-using LiveCharts;
-using LiveCharts.Wpf;
 using PdfSharp.Drawing;
 using PdfSharp.Pdf;
 using System;
@@ -19,34 +17,31 @@ namespace IS201_N22_HTCL.UserControls
         SqlConnection con = new SqlConnection(SQLConnection.connectionString);
         public static DataTable dataTable;
         SqlDataAdapter adapter = new SqlDataAdapter();
-        FireBaseService fireBaseService = new FireBaseService();
+        FireBaseService fireBaseConnection = new FireBaseService();
         SqlDataAdapter da = new SqlDataAdapter();
         DataTable dtProducer = new DataTable();
         DataTable dtGenre = new DataTable();
 
-
         public UsCtr_Manage()
         {
-            InitializeComponent();
-            btnImportDisc.Enabled = false;
-            LoadDataDisc();
-            LoadDataDiscImport();
-            LoadDataToComboboxDisc();
-            LoadDataToSearchBox();
-            LoadDataStaff();
-
-            cbMode.SelectedIndex = 0;
-            cbValues.SelectedIndex = 0;
-
+            InitializeComponent(); btnImportDisc.Enabled = false;
             if (fLogin.permission != "Admin")
             {
                 tabControl.TabPages.RemoveByKey("Staff");
             }
+            LoadDataStaff();
+            LoadDataDisc();
+            LoadDataDiscImport();
+            LoadDataToComboboxDisc();
+            LoadDataToSearchBox();
+
+            cbMode.SelectedIndex = 0;
+            cbValues.SelectedIndex = 0;
         }
 
         private void LoadDataToSearchBox()
         {
-            AutoCompleteStringCollection auto = new AutoCompleteStringCollection();
+            var auto = new AutoCompleteStringCollection();
 
             con.Open();
             string loadDT = "select DISC_NAME from DISC";
@@ -60,14 +55,74 @@ namespace IS201_N22_HTCL.UserControls
 
                 }
             }
-            tbxDisc.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
-            tbxDisc.AutoCompleteSource = AutoCompleteSource.CustomSource;
-            tbxDisc.AutoCompleteCustomSource = auto;
+            //tbxDisc.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            //tbxDisc.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            //tbxDisc.AutoCompleteCustomSource = auto;
 
-            tbxSearchDisc.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
-            tbxSearchDisc.AutoCompleteSource = AutoCompleteSource.CustomSource;
-            tbxSearchDisc.AutoCompleteCustomSource = auto;
             con.Close();
+
+        }
+
+
+
+
+        private void btnAddStaff_Click(object sender, System.EventArgs e)
+        {
+            if (tbMail.Text == "" || tbUsername.Text == ""
+                || tbPassword.Text == "" || tbIDnum.Text == "" || tbPhonenum.Text == "" || tbAddress.Text == "")
+            {
+                messageBox.Caption = "Please fill out the information";
+                messageBox.Show();
+            }
+            else
+            {
+                int pos = GetPositionID(cbPosition.SelectedItem.ToString());
+                con.Open();
+                string check = "SELECT USER_NAME FROM USERS WHERE USER_NAME = '" + tbUsername.Text.Trim() + "'";
+                cmd = new SqlCommand(check, con);
+                SqlDataReader dr = cmd.ExecuteReader();
+
+                if (dr.HasRows)
+                {
+                    messageBox.Caption = "Username is existed!\nTry other username!";
+                    messageBox.Show();
+                }
+                else
+                {
+                    con.Close();
+                    con.Open();
+                    string register = "INSERT INTO USERS (USER_NAME,USER_PASSWORD,USER_FULLNAME, USER_MAIL,USER_ID_NUMBER,USER_PHONE,USER_POSITION, USER_ADDRESS) " +
+                        "VALUES (N'" + tbUsername.Text.Trim() + "','" + tbPassword.Text.Trim() + "','" + tbFullname.Text.Trim() + "','" +
+                           tbFullname.Text.Trim() + "'"
+                        + ",N'" + tbIDnum.Text.Trim() + "',N'" + tbPhonenum.Text + "'," + pos + ",N'" + tbAddress.Text.Trim() + "')";
+                    cmd = new SqlCommand(register, con);
+                    cmd.ExecuteNonQuery();
+
+                    messageBox.Caption = "Create new account successfully";
+                    messageBox.Show();
+                }
+
+                con.Close();
+                LoadDataStaff();
+            }
+        }
+
+        private void LoadDataStaff()
+        {
+            if (fLogin.permission != "Admin")
+            {
+                btnAddStaff.Enabled = false;
+            }
+            con.Open();
+            string sql = "select USER_NAME, USER_FULLNAME,USER_ADDRESS, POSITION_NAME from USERS, POSITION where USERS.USER_POSITION = POSITION.POSITION_ID and POSITION_NAME <> 'Customer'";
+            cmd = new SqlCommand(sql, con);
+            cmd.CommandType = CommandType.Text;
+            da = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            con.Close();
+            gvStaff.DataSource = dt;
+
 
         }
 
@@ -187,8 +242,8 @@ namespace IS201_N22_HTCL.UserControls
                         reader.Close();
                     }
                     con.Close();
-                    fireBaseService.PushImage(pcDisc, "Disc/" + discID);
-                    //fireBaseService.RetrieveImage(pcDisc, "Disc/" + tbDiscID);
+                    fireBaseConnection.PushImage(pcDisc, "Disc/" + discID);
+                    //fireBaseConnection.RetrieveImage(pcDisc, "Disc/" + tbDiscID);
                     LoadDataDisc();
                     LoadDataDiscImport();
 
@@ -260,7 +315,7 @@ namespace IS201_N22_HTCL.UserControls
             nbInstockIm.Text = gvListDisc.Rows[e.RowIndex].Cells[2].Value.ToString();
             btnImportDisc.Enabled = true;
 
-            fireBaseService.RetrieveImage(pbDiscIm, "Disc/" + gvListDisc.Rows[e.RowIndex].Cells[0].Value.ToString());
+            fireBaseConnection.RetrieveImage(pbDiscIm, "Disc/" + gvListDisc.Rows[e.RowIndex].Cells[0].Value.ToString());
 
         }
 
@@ -287,7 +342,7 @@ namespace IS201_N22_HTCL.UserControls
             tbRentPrice.Text = gvDisc.Rows[e.RowIndex].Cells[5].Value.ToString();
             nbAmount.Text = gvDisc.Rows[e.RowIndex].Cells[4].Value.ToString();
 
-            fireBaseService.RetrieveImage(pcDisc, "Disc/" + gvDisc.Rows[e.RowIndex].Cells[0].Value.ToString());
+            fireBaseConnection.RetrieveImage(pcDisc, "Disc/" + gvDisc.Rows[e.RowIndex].Cells[0].Value.ToString());
         }
 
         private void btnUpdateDisc_Click(object sender, System.EventArgs e)
@@ -313,8 +368,8 @@ namespace IS201_N22_HTCL.UserControls
                     cmd = new SqlCommand(register, con);
                     cmd.ExecuteNonQuery();
                     con.Close();
-                    fireBaseService.PushImage(pcDisc, "Disc/" + tbDiscID.Text);
-                    fireBaseService.RetrieveImage(pcDisc, "Disc/" + tbDiscID.Text);
+                    fireBaseConnection.PushImage(pcDisc, "Disc/" + tbDiscID.Text);
+                    fireBaseConnection.RetrieveImage(pcDisc, "Disc/" + tbDiscID.Text);
                     LoadDataDisc();
                 }
                 con.Close();
@@ -334,6 +389,34 @@ namespace IS201_N22_HTCL.UserControls
                 System.Drawing.Image img = new Bitmap(ofd.FileName);
                 pcDisc.Image = img.GetThumbnailImage(360, 200, null, new IntPtr());
             }
+        }
+
+        private void btnCreateChart_Click(object sender, EventArgs e)
+        {
+            string currentYear = DateTime.Now.Year.ToString();
+            var values = new List<int>();
+            var dates = new List<string>();
+            string get = "select MONTH(return_date) as Date, sum(RETURN_PRICE) as Revenue " +
+                       "from RETURN_DISC where year(return_date) = " + currentYear + " group by MONTH(return_date)";
+            if (cbMode.SelectedIndex == 1)
+            {
+                get = "select datepart(quarter,return_date) as Date, sum(RETURN_PRICE) as Revenue from RETURN_DISC " +
+                    "where YEAR( return_date) = " + currentYear + " group by datepart(quarter,return_date)";
+            }
+            else if (cbMode.SelectedIndex == 2)
+            {
+                get = "select YEAR(return_date) as Date, sum(RETURN_PRICE) as Revenue from RETURN_DISC group by YEAR(return_date)";
+            }
+            DataSet ds = new DataSet();
+            con.Open();
+            SqlDataAdapter adapt = new SqlDataAdapter(get, con);
+            adapt.Fill(ds);
+            chart1.DataSource = ds;
+            con.Close();
+            chart1.Series["Revenue"].XValueMember = "Date";
+            chart1.Series["Revenue"].YValueMembers = "Revenue";
+            chart1.Titles.Add("Revenue");
+
         }
 
         private void tbxDisc_KeyDown(object sender, KeyEventArgs e)
@@ -387,197 +470,6 @@ namespace IS201_N22_HTCL.UserControls
         private void tbxSearchDisc_TextChanged(object sender, EventArgs e)
         {
 
-        }
-
-        private void tbRentPrice_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
-                e.Handled = true;
-        }
-
-        private void btnShowPassword_CheckedChanged(object sender, EventArgs e)
-        {
-            if (btnShowPassword.Checked)
-            {
-                tbPassword.PasswordChar = '\0';
-            }
-            else
-            {
-                tbPassword.PasswordChar = '•';
-            }
-        }
-
-        private void btnAddStaff_Click(object sender, System.EventArgs e)
-        {
-            if (tbMail.Text == "" || tbUsername.Text == ""
-                || tbPassword.Text == "" || tbIDnum.Text == "" || tbPhonenum.Text == "" || tbAddress.Text == "")
-            {
-                messageBox.Caption = "Please fill out the information";
-                messageBox.Show();
-            }
-            else
-            {
-                int pos = GetPositionID(cbPosition.SelectedItem.ToString());
-                con.Open();
-                string check = "SELECT USER_NAME FROM USERS WHERE USER_NAME = '" + tbUsername.Text.Trim() + "'";
-                cmd = new SqlCommand(check, con);
-                SqlDataReader dr = cmd.ExecuteReader();
-
-                if (dr.HasRows)
-                {
-                    messageBox.Caption = "Username is existed!\nTry other username!";
-                    messageBox.Show();
-                }
-                else
-                {
-                    con.Close();
-                    con.Open();
-                    string register = "INSERT INTO USERS (USER_NAME,USER_PASSWORD,USER_FULLNAME, USER_MAIL,USER_ID_NUMBER,USER_PHONE,USER_POSITION, USER_ADDRESS) " +
-                        "VALUES (N'" + tbUsername.Text.Trim() + "','" + tbPassword.Text.Trim() + "','" + tbFullname.Text.Trim() + "','" +
-                           tbFullname.Text.Trim() + "'"
-                        + ",N'" + tbIDnum.Text.Trim() + "',N'" + tbPhonenum.Text + "'," + pos + ",N'" + tbAddress.Text.Trim() + "')";
-                    cmd = new SqlCommand(register, con);
-                    cmd.ExecuteNonQuery();
-
-                    messageBox.Caption = "Create new account successfully";
-                    messageBox.Show();
-                }
-
-                con.Close();
-                LoadDataStaff();
-            }
-        }
-
-        private void LoadDataStaff()
-        {
-            if (fLogin.permission != "Admin")
-            {
-                btnAddStaff.Enabled = false;
-            }
-            con.Open();
-            string sql = "select USER_NAME, USER_FULLNAME,USER_ADDRESS, POSITION_NAME from USERS, POSITION where USERS.USER_POSITION = POSITION.POSITION_ID and POSITION_NAME <> 'Customer'";
-            cmd = new SqlCommand(sql, con);
-            cmd.CommandType = CommandType.Text;
-            da = new SqlDataAdapter(cmd);
-            DataTable dt = new DataTable();
-            da.Fill(dt);
-            con.Close();
-            gvStaff.DataSource = dt;
-
-
-        }
-
-        private void tbIDnum_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
-                e.Handled = true;
-        }
-
-        private void tbPhonenum_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
-                e.Handled = true;
-        }
-
-        private void gvStaff_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            string position = "";
-            con.Open();
-            string loadDT = "select * from USERS, POSITION where USERS.USER_POSITION = POSITION.POSITION_ID and USER_NAME = N'" + gvStaff.Rows[e.RowIndex].Cells[0].Value.ToString() + "'";
-            SqlCommand cmd = new SqlCommand(loadDT, con);
-            SqlDataReader reader = cmd.ExecuteReader();
-            if (reader.HasRows)
-            {
-                while (reader.Read())
-                {
-                    tbUsername.Text = (string)reader["USER_NAME"];
-                    tbPassword.Text = (string)reader["USER_PASSWORD"];
-                    tbFullname.Text = (string)reader["USER_FULLNAME"];
-                    tbAddress.Text = (string)reader["USER_ADDRESS"];
-                    tbMail.Text = (string)reader["USER_MAIL"];
-                    tbIDnum.Text = (string)reader["USER_ID_NUMBER"];
-                    tbPhonenum.Text = (string)reader["USER_PHONE"];
-                    position = (string)reader["POSITION_NAME"];
-                }
-                reader.Close();
-            }
-            con.Close();
-
-            if (position == "Staff")
-            {
-                cbPosition.SelectedIndex = 0;
-            }
-            else
-            {
-                cbPosition.SelectedIndex = 1;
-            }
-        }
-
-        private void btnCreateChart_Click(object sender, EventArgs e)
-        {
-            string currentYear = DateTime.Now.Year.ToString();
-            var values = new ChartValues<int>();
-            var dates = new List<string>();
-            string get = "select MONTH(return_date) as DATE, sum(RETURN_PRICE) as REVENUE " +
-                       "from RETURN_DISC where year(return_date) = " + currentYear + " group by MONTH(return_date)";
-            if (cbMode.SelectedIndex == 1)
-            {
-                get = "select datepart(quarter,return_date) as DATE, sum(RETURN_PRICE) as REVENUE from RETURN_DISC " +
-                    "where YEAR( return_date) = " + currentYear + " group by datepart(quarter,return_date)";
-            }
-            else if (cbMode.SelectedIndex == 2)
-            {
-                get = "select YEAR(return_date) as DATE, sum(RETURN_PRICE) as REVENUE from RETURN_DISC group by YEAR(return_date)";
-            }
-            con.Open();
-            cmd = new SqlCommand(get, con);
-            SqlDataReader dr = cmd.ExecuteReader();
-
-            if (dr.HasRows)
-            {
-                while (dr.Read())
-                {
-                    values.Add((int)dr["REVENUE"]);
-                    dates.Add(dr["DATE"].ToString());
-                }
-                dr.Close();
-            }
-            con.Close();
-            cartesianChart1.Series.Clear();
-            cartesianChart1.Series = new SeriesCollection()
-            {
-                new LineSeries
-                {
-                    Title = "Revenue",
-                    Values = values
-                },
-
-            };
-            cartesianChart1.AxisX.Clear();
-            if (cbMode.SelectedIndex == 0)
-            {
-                cartesianChart1.AxisX.Add(new Axis
-                {
-
-                    Labels = new[] { "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" }
-                });
-            }
-            else
-            {
-                cartesianChart1.AxisX.Add(new Axis
-                {
-
-                    Labels = dates
-                });
-            }
-            cartesianChart1.AxisY.Clear();
-            cartesianChart1.AxisY.Add(new Axis
-            {
-                Title = "Revenue",
-                LabelFormatter = value => value.ToString("C")
-            });
-
-            cartesianChart1.LegendLocation = LegendLocation.None;
         }
 
         private void cbMode_SelectedIndexChanged(object sender, EventArgs e)
@@ -693,6 +585,70 @@ namespace IS201_N22_HTCL.UserControls
             }
             catch (Exception ex)
             {
+            }
+        }
+
+        private void tbIDnum_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
+                e.Handled = true;
+        }
+
+        private void tbPhonenum_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
+                e.Handled = true;
+        }
+
+        private void tbRentPrice_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
+                e.Handled = true;
+        }
+
+        private void btnShowPassword_CheckedChanged(object sender, EventArgs e)
+        {
+            if (btnShowPassword.Checked)
+            {
+                tbPassword.PasswordChar = '\0';
+            }
+            else
+            {
+                tbPassword.PasswordChar = '•';
+            }
+        }
+
+        private void gvStaff_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            string position = "";
+            con.Open();
+            string loadDT = "select * from USERS, POSITION where USERS.USER_POSITION = POSITION.POSITION_ID and USER_NAME = N'" + gvStaff.Rows[e.RowIndex].Cells[0].Value.ToString() + "'";
+            SqlCommand cmd = new SqlCommand(loadDT, con);
+            SqlDataReader reader = cmd.ExecuteReader();
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    tbUsername.Text = (string)reader["USER_NAME"];
+                    tbPassword.Text = (string)reader["USER_PASSWORD"];
+                    tbFullname.Text = (string)reader["USER_FULLNAME"];
+                    tbAddress.Text = (string)reader["USER_ADDRESS"];
+                    tbMail.Text = (string)reader["USER_MAIL"];
+                    tbIDnum.Text = (string)reader["USER_ID_NUMBER"];
+                    tbPhonenum.Text = (string)reader["USER_PHONE"];
+                    position = (string)reader["POSITION_NAME"];
+                }
+                reader.Close();
+            }
+            con.Close();
+
+            if (position == "Staff")
+            {
+                cbPosition.SelectedIndex = 0;
+            }
+            else
+            {
+                cbPosition.SelectedIndex = 1;
             }
         }
     }
