@@ -12,29 +12,29 @@ namespace IS201_N22_HTCL
     {
         UsCtr_HomePage HomePage;
         UsCtr_Order Order;
-        //UsCtr_Cart Cart;
-        //UsCtr_Manage Manage;
-        //ShopView Store;
-        //UsCtr_UserProfilecs UserProfilecs;
+        UsCtr_Cart Cart;
+        UsCtr_Manage Manage;
+        ShopView Store;
+        UsCtr_UserProfilecs UserProfilecs;
         SqlCommand cmd;
         SqlConnection con = new SqlConnection(SQLConnection.connectionString);
         public fMainPage(fLogin login)
         {
             InitializeComponent();
             HomePage = new UsCtr_HomePage();
-            //Cart = new UsCtr_Cart();
-            //Manage = new UsCtr_Manage();
+            Cart = new UsCtr_Cart();
+            Manage = new UsCtr_Manage();
             Order = new UsCtr_Order();
-            //Store = new ShopView();
-            //UserProfilecs = new UsCtr_UserProfilecs();
+            Store = new ShopView();
+            UserProfilecs = new UsCtr_UserProfilecs();
 
             pnView.Controls.Add(HomePage);
             pnView.Controls.Add(Order);
-            //pnView.Controls.Add(Cart);
-            //pnView.Controls.Add(Manage);
-            //pnView.Controls.Add(Store);
-            //pnView.Controls.Add(UserProfilecs);
-            //HomePage.BringToFront();
+            pnView.Controls.Add(Cart);
+            pnView.Controls.Add(Manage);
+            pnView.Controls.Add(Store);
+            pnView.Controls.Add(UserProfilecs);
+            HomePage.BringToFront();
             SetVisibleMenu();
         }
 
