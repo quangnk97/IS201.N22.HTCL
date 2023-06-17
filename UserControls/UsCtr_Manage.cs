@@ -1,6 +1,5 @@
 ﻿using IS201_N22_HTCL.Service;
 using LiveCharts;
-using LiveCharts.Wpf;
 using PdfSharp.Drawing;
 using PdfSharp.Pdf;
 using System;
@@ -518,66 +517,30 @@ namespace IS201_N22_HTCL.UserControls
             string currentYear = DateTime.Now.Year.ToString();
             var values = new ChartValues<int>();
             var dates = new List<string>();
-            string get = "select MONTH(return_date) as DATE, sum(RETURN_PRICE) as REVENUE " +
+            string get = "select MONTH(return_date) as Date, sum(RETURN_PRICE) as Revenue " +
                        "from RETURN_DISC where year(return_date) = " + currentYear + " group by MONTH(return_date)";
             if (cbMode.SelectedIndex == 1)
             {
-                get = "select datepart(quarter,return_date) as DATE, sum(RETURN_PRICE) as REVENUE from RETURN_DISC " +
+                get = "select datepart(quarter,return_date) as Date, sum(RETURN_PRICE) as Revenue from RETURN_DISC " +
                     "where YEAR( return_date) = " + currentYear + " group by datepart(quarter,return_date)";
             }
             else if (cbMode.SelectedIndex == 2)
             {
-                get = "select YEAR(return_date) as DATE, sum(RETURN_PRICE) as REVENUE from RETURN_DISC group by YEAR(return_date)";
+                get = "select YEAR(return_date) as Date, sum(RETURN_PRICE) as Revenue from RETURN_DISC group by YEAR(return_date)";
             }
+
+            DataSet ds = new DataSet();
+            chart1.Titles.Clear();
+
             con.Open();
-            cmd = new SqlCommand(get, con);
-            SqlDataReader dr = cmd.ExecuteReader();
-
-            if (dr.HasRows)
-            {
-                while (dr.Read())
-                {
-                    values.Add((int)dr["REVENUE"]);
-                    dates.Add(dr["DATE"].ToString());
-                }
-                dr.Close();
-            }
+            SqlDataAdapter adapt = new SqlDataAdapter(get, con);
+            adapt.Fill(ds);
+            chart1.DataSource = ds;
+            chart1.Series["Revenue"].XValueMember = "Date";
+            chart1.Series["Revenue"].YValueMembers = "Revenue";
+            chart1.Titles.Add("Revenue");
             con.Close();
-            cartesianChart1.Series.Clear();
-            cartesianChart1.Series = new SeriesCollection()
-            {
-                new LineSeries
-                {
-                    Title = "Revenue",
-                    Values = values
-                },
 
-            };
-            cartesianChart1.AxisX.Clear();
-            if (cbMode.SelectedIndex == 0)
-            {
-                cartesianChart1.AxisX.Add(new Axis
-                {
-
-                    Labels = new[] { "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" }
-                });
-            }
-            else
-            {
-                cartesianChart1.AxisX.Add(new Axis
-                {
-
-                    Labels = dates
-                });
-            }
-            cartesianChart1.AxisY.Clear();
-            cartesianChart1.AxisY.Add(new Axis
-            {
-                Title = "Revenue",
-                LabelFormatter = value => value.ToString("C")
-            });
-
-            cartesianChart1.LegendLocation = LegendLocation.None;
         }
 
         private void cbMode_SelectedIndexChanged(object sender, EventArgs e)
