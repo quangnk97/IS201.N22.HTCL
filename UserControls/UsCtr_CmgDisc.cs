@@ -67,6 +67,13 @@ namespace IS201_N22_HTCL.UserControls
 
         private void btnSubscribe_Click(object sender, EventArgs e)
         {
+            SubscribeDisc();
+
+
+        }
+
+        private void SubscribeDisc()
+        {
             isSubscribe = !isSubscribe;
             if (isSubscribe)
             {
@@ -95,11 +102,15 @@ namespace IS201_N22_HTCL.UserControls
                 cmd.ExecuteNonQuery();
                 con.Close();
             }
-
-
         }
 
         private void btnJustify_Click(object sender, EventArgs e)
+        {
+            JustifyComingDisc();
+
+        }
+
+        private void JustifyComingDisc()
         {
             isClick = !isClick;
             if (isClick)
@@ -107,7 +118,7 @@ namespace IS201_N22_HTCL.UserControls
                 cbDiscName.Visible = true;
                 lbName.Visible = false;
                 btnJustify.IconChar = FontAwesome.Sharp.IconChar.Check;
-                LoadDataToCombobox();
+                GetListOfDisc();
             }
             else
             {
@@ -142,10 +153,14 @@ namespace IS201_N22_HTCL.UserControls
                 btnSubscribe.Enabled = true;
                 UpdateComingDisc();
             }
-
         }
 
         private void btnReady_Click(object sender, EventArgs e)
+        {
+            AvailabelDisc();
+        }
+
+        private void AvailabelDisc()
         {
             MessageBox.Show("Please wait for a minute. We are sending email to your customers!");
             SendNotification();
@@ -159,7 +174,7 @@ namespace IS201_N22_HTCL.UserControls
             btnSubscribe.Enabled = false;
         }
 
-        private void LoadDataToCombobox()
+        private void GetListOfDisc()
         {
             //cbDiscName.Items.Clear();
             con.Open();

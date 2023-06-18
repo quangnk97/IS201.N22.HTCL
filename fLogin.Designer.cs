@@ -31,11 +31,10 @@ namespace IS201_N22_HTCL
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fLogin));
             this.guna2BorderlessForm1 = new Guna.UI2.WinForms.Guna2BorderlessForm(this.components);
             this.pnBackground = new Guna.UI2.WinForms.Guna2ShadowPanel();
             this.pnSignIn = new Guna.UI2.WinForms.Guna2Panel();
-            this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.forgotPasswordBtn = new Guna.UI2.WinForms.Guna2Button();
             this.btnSignUp = new Guna.UI2.WinForms.Guna2Button();
             this.btnLogin = new Guna.UI2.WinForms.Guna2Button();
             this.btnShowPassword = new Guna.UI2.WinForms.Guna2ToggleSwitch();
@@ -55,15 +54,15 @@ namespace IS201_N22_HTCL
             this.tbAddressSU = new Guna.UI2.WinForms.Guna2TextBox();
             this.tbPhonenumSU = new Guna.UI2.WinForms.Guna2TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.message = new Guna.UI2.WinForms.Guna2MessageDialog();
             this.iconButton1 = new FontAwesome.Sharp.IconButton();
             this.btnClose = new FontAwesome.Sharp.IconButton();
-            this.message = new Guna.UI2.WinForms.Guna2MessageDialog();
-            this.forgotPasswordBtn = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.pnBackground.SuspendLayout();
             this.pnSignIn.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             this.pnSignUp.SuspendLayout();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // guna2BorderlessForm1
@@ -79,12 +78,12 @@ namespace IS201_N22_HTCL
             this.pnBackground.Controls.Add(this.pnSignIn);
             this.pnBackground.Controls.Add(this.pnSignUp);
             this.pnBackground.FillColor = System.Drawing.Color.White;
-            this.pnBackground.Location = new System.Drawing.Point(980, 151);
-            this.pnBackground.Margin = new System.Windows.Forms.Padding(2);
+            this.pnBackground.Location = new System.Drawing.Point(1307, 186);
+            this.pnBackground.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnBackground.Name = "pnBackground";
             this.pnBackground.Radius = 10;
             this.pnBackground.ShadowColor = System.Drawing.Color.Black;
-            this.pnBackground.Size = new System.Drawing.Size(424, 630);
+            this.pnBackground.Size = new System.Drawing.Size(565, 775);
             this.pnBackground.TabIndex = 1;
             // 
             // pnSignIn
@@ -97,23 +96,30 @@ namespace IS201_N22_HTCL
             this.pnSignIn.Controls.Add(this.tbUsername);
             this.pnSignIn.Controls.Add(this.tbPassword);
             this.pnSignIn.Controls.Add(this.guna2HtmlLabel1);
-            this.pnSignIn.Location = new System.Drawing.Point(60, 53);
-            this.pnSignIn.Margin = new System.Windows.Forms.Padding(2);
+            this.pnSignIn.Location = new System.Drawing.Point(80, 65);
+            this.pnSignIn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnSignIn.Name = "pnSignIn";
-            this.pnSignIn.Size = new System.Drawing.Size(318, 540);
+            this.pnSignIn.Size = new System.Drawing.Size(424, 665);
             this.pnSignIn.TabIndex = 7;
             // 
-            // guna2PictureBox1
+            // forgotPasswordBtn
             // 
-            this.guna2PictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox1.Image")));
-            this.guna2PictureBox1.ImageRotate = 0F;
-            this.guna2PictureBox1.Location = new System.Drawing.Point(86, 7);
-            this.guna2PictureBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.guna2PictureBox1.Name = "guna2PictureBox1";
-            this.guna2PictureBox1.Size = new System.Drawing.Size(152, 178);
-            this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.guna2PictureBox1.TabIndex = 12;
-            this.guna2PictureBox1.TabStop = false;
+            this.forgotPasswordBtn.BorderRadius = 15;
+            this.forgotPasswordBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.forgotPasswordBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.forgotPasswordBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.forgotPasswordBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.forgotPasswordBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.forgotPasswordBtn.FillColor = System.Drawing.Color.Transparent;
+            this.forgotPasswordBtn.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.forgotPasswordBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(110)))), ((int)(((byte)(176)))));
+            this.forgotPasswordBtn.Location = new System.Drawing.Point(247, 448);
+            this.forgotPasswordBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.forgotPasswordBtn.Name = "forgotPasswordBtn";
+            this.forgotPasswordBtn.Size = new System.Drawing.Size(173, 37);
+            this.forgotPasswordBtn.TabIndex = 14;
+            this.forgotPasswordBtn.Text = "Forgot Password";
+            this.forgotPasswordBtn.Click += new System.EventHandler(this.forgotPasswordBtn_Click);
             // 
             // btnSignUp
             // 
@@ -126,10 +132,10 @@ namespace IS201_N22_HTCL
             this.btnSignUp.FillColor = System.Drawing.Color.Transparent;
             this.btnSignUp.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.btnSignUp.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(110)))), ((int)(((byte)(176)))));
-            this.btnSignUp.Location = new System.Drawing.Point(86, 480);
-            this.btnSignUp.Margin = new System.Windows.Forms.Padding(2);
+            this.btnSignUp.Location = new System.Drawing.Point(115, 591);
+            this.btnSignUp.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSignUp.Name = "btnSignUp";
-            this.btnSignUp.Size = new System.Drawing.Size(161, 35);
+            this.btnSignUp.Size = new System.Drawing.Size(215, 43);
             this.btnSignUp.TabIndex = 10;
             this.btnSignUp.Text = "Create account";
             this.btnSignUp.Click += new System.EventHandler(this.btnSignUp_Click);
@@ -145,10 +151,10 @@ namespace IS201_N22_HTCL
             this.btnLogin.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(110)))), ((int)(((byte)(176)))));
             this.btnLogin.Font = new System.Drawing.Font("Segoe UI Semibold", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.btnLogin.ForeColor = System.Drawing.Color.White;
-            this.btnLogin.Location = new System.Drawing.Point(59, 423);
-            this.btnLogin.Margin = new System.Windows.Forms.Padding(2);
+            this.btnLogin.Location = new System.Drawing.Point(79, 521);
+            this.btnLogin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(204, 53);
+            this.btnLogin.Size = new System.Drawing.Size(272, 65);
             this.btnLogin.TabIndex = 11;
             this.btnLogin.Text = "Sign in";
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
@@ -160,10 +166,10 @@ namespace IS201_N22_HTCL
             this.btnShowPassword.CheckedState.InnerBorderColor = System.Drawing.Color.White;
             this.btnShowPassword.CheckedState.InnerColor = System.Drawing.Color.White;
             this.btnShowPassword.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnShowPassword.Location = new System.Drawing.Point(10, 370);
-            this.btnShowPassword.Margin = new System.Windows.Forms.Padding(2);
+            this.btnShowPassword.Location = new System.Drawing.Point(13, 455);
+            this.btnShowPassword.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnShowPassword.Name = "btnShowPassword";
-            this.btnShowPassword.Size = new System.Drawing.Size(30, 20);
+            this.btnShowPassword.Size = new System.Drawing.Size(40, 25);
             this.btnShowPassword.TabIndex = 9;
             this.btnShowPassword.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
             this.btnShowPassword.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
@@ -184,14 +190,14 @@ namespace IS201_N22_HTCL
             this.tbUsername.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.tbUsername.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.tbUsername.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.tbUsername.Location = new System.Drawing.Point(3, 229);
-            this.tbUsername.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.tbUsername.Location = new System.Drawing.Point(4, 282);
+            this.tbUsername.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
             this.tbUsername.MaxLength = 20;
             this.tbUsername.Name = "tbUsername";
             this.tbUsername.PasswordChar = '\0';
             this.tbUsername.PlaceholderText = "Username";
             this.tbUsername.SelectedText = "";
-            this.tbUsername.Size = new System.Drawing.Size(312, 49);
+            this.tbUsername.Size = new System.Drawing.Size(416, 60);
             this.tbUsername.TabIndex = 7;
             // 
             // tbPassword
@@ -207,15 +213,15 @@ namespace IS201_N22_HTCL
             this.tbPassword.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.tbPassword.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.tbPassword.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.tbPassword.Location = new System.Drawing.Point(3, 307);
-            this.tbPassword.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.tbPassword.Location = new System.Drawing.Point(4, 378);
+            this.tbPassword.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
             this.tbPassword.MaxLength = 20;
             this.tbPassword.Name = "tbPassword";
-            this.tbPassword.Padding = new System.Windows.Forms.Padding(2, 4, 2, 4);
+            this.tbPassword.Padding = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.tbPassword.PasswordChar = '•';
             this.tbPassword.PlaceholderText = "Password";
             this.tbPassword.SelectedText = "";
-            this.tbPassword.Size = new System.Drawing.Size(312, 49);
+            this.tbPassword.Size = new System.Drawing.Size(416, 60);
             this.tbPassword.TabIndex = 8;
             this.tbPassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbPassword_KeyDown);
             // 
@@ -224,10 +230,10 @@ namespace IS201_N22_HTCL
             this.guna2HtmlLabel1.AutoSize = false;
             this.guna2HtmlLabel1.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel1.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.guna2HtmlLabel1.Location = new System.Drawing.Point(44, 369);
-            this.guna2HtmlLabel1.Margin = new System.Windows.Forms.Padding(2);
+            this.guna2HtmlLabel1.Location = new System.Drawing.Point(59, 454);
+            this.guna2HtmlLabel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
-            this.guna2HtmlLabel1.Size = new System.Drawing.Size(174, 30);
+            this.guna2HtmlLabel1.Size = new System.Drawing.Size(232, 37);
             this.guna2HtmlLabel1.TabIndex = 13;
             this.guna2HtmlLabel1.Text = "Show password";
             // 
@@ -244,10 +250,10 @@ namespace IS201_N22_HTCL
             this.pnSignUp.Controls.Add(this.tbEmailSU);
             this.pnSignUp.Controls.Add(this.tbAddressSU);
             this.pnSignUp.Controls.Add(this.tbPhonenumSU);
-            this.pnSignUp.Location = new System.Drawing.Point(60, 53);
-            this.pnSignUp.Margin = new System.Windows.Forms.Padding(2);
+            this.pnSignUp.Location = new System.Drawing.Point(80, 65);
+            this.pnSignUp.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnSignUp.Name = "pnSignUp";
-            this.pnSignUp.Size = new System.Drawing.Size(318, 540);
+            this.pnSignUp.Size = new System.Drawing.Size(424, 665);
             this.pnSignUp.TabIndex = 7;
             // 
             // tbUsernameSU
@@ -263,14 +269,14 @@ namespace IS201_N22_HTCL
             this.tbUsernameSU.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.tbUsernameSU.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.tbUsernameSU.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.tbUsernameSU.Location = new System.Drawing.Point(0, 58);
-            this.tbUsernameSU.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.tbUsernameSU.Location = new System.Drawing.Point(0, 71);
+            this.tbUsernameSU.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
             this.tbUsernameSU.MaxLength = 20;
             this.tbUsernameSU.Name = "tbUsernameSU";
             this.tbUsernameSU.PasswordChar = '\0';
             this.tbUsernameSU.PlaceholderText = "Usename";
             this.tbUsernameSU.SelectedText = "";
-            this.tbUsernameSU.Size = new System.Drawing.Size(318, 49);
+            this.tbUsernameSU.Size = new System.Drawing.Size(424, 60);
             this.tbUsernameSU.TabIndex = 13;
             // 
             // tbAddress
@@ -286,15 +292,15 @@ namespace IS201_N22_HTCL
             this.tbAddress.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.tbAddress.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.tbAddress.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.tbAddress.Location = new System.Drawing.Point(0, 172);
-            this.tbAddress.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.tbAddress.Location = new System.Drawing.Point(0, 212);
+            this.tbAddress.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
             this.tbAddress.MaxLength = 2000;
             this.tbAddress.Name = "tbAddress";
-            this.tbAddress.Padding = new System.Windows.Forms.Padding(2, 4, 2, 4);
+            this.tbAddress.Padding = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.tbAddress.PasswordChar = '\0';
             this.tbAddress.PlaceholderText = "Address";
             this.tbAddress.SelectedText = "";
-            this.tbAddress.Size = new System.Drawing.Size(318, 49);
+            this.tbAddress.Size = new System.Drawing.Size(424, 60);
             this.tbAddress.TabIndex = 14;
             // 
             // tbPasswordSU
@@ -310,15 +316,15 @@ namespace IS201_N22_HTCL
             this.tbPasswordSU.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.tbPasswordSU.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.tbPasswordSU.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.tbPasswordSU.Location = new System.Drawing.Point(0, 114);
-            this.tbPasswordSU.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.tbPasswordSU.Location = new System.Drawing.Point(0, 140);
+            this.tbPasswordSU.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
             this.tbPasswordSU.MaxLength = 20;
             this.tbPasswordSU.Name = "tbPasswordSU";
-            this.tbPasswordSU.Padding = new System.Windows.Forms.Padding(2, 4, 2, 4);
+            this.tbPasswordSU.Padding = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.tbPasswordSU.PasswordChar = '•';
             this.tbPasswordSU.PlaceholderText = "Password";
             this.tbPasswordSU.SelectedText = "";
-            this.tbPasswordSU.Size = new System.Drawing.Size(318, 49);
+            this.tbPasswordSU.Size = new System.Drawing.Size(424, 60);
             this.tbPasswordSU.TabIndex = 14;
             // 
             // guna2HtmlLabel2
@@ -326,10 +332,10 @@ namespace IS201_N22_HTCL
             this.guna2HtmlLabel2.AutoSize = false;
             this.guna2HtmlLabel2.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel2.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.guna2HtmlLabel2.Location = new System.Drawing.Point(34, 409);
-            this.guna2HtmlLabel2.Margin = new System.Windows.Forms.Padding(2);
+            this.guna2HtmlLabel2.Location = new System.Drawing.Point(45, 503);
+            this.guna2HtmlLabel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.guna2HtmlLabel2.Name = "guna2HtmlLabel2";
-            this.guna2HtmlLabel2.Size = new System.Drawing.Size(174, 33);
+            this.guna2HtmlLabel2.Size = new System.Drawing.Size(232, 41);
             this.guna2HtmlLabel2.TabIndex = 12;
             this.guna2HtmlLabel2.Text = "Show password";
             // 
@@ -344,10 +350,10 @@ namespace IS201_N22_HTCL
             this.btnBackToLogin.FillColor = System.Drawing.Color.Transparent;
             this.btnBackToLogin.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.btnBackToLogin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(110)))), ((int)(((byte)(176)))));
-            this.btnBackToLogin.Location = new System.Drawing.Point(86, 503);
-            this.btnBackToLogin.Margin = new System.Windows.Forms.Padding(2);
+            this.btnBackToLogin.Location = new System.Drawing.Point(115, 619);
+            this.btnBackToLogin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnBackToLogin.Name = "btnBackToLogin";
-            this.btnBackToLogin.Size = new System.Drawing.Size(141, 35);
+            this.btnBackToLogin.Size = new System.Drawing.Size(188, 43);
             this.btnBackToLogin.TabIndex = 10;
             this.btnBackToLogin.Text = "Sign in";
             this.btnBackToLogin.Click += new System.EventHandler(this.btnBackToLogin_Click);
@@ -363,10 +369,10 @@ namespace IS201_N22_HTCL
             this.btnCreate.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(110)))), ((int)(((byte)(176)))));
             this.btnCreate.Font = new System.Drawing.Font("Segoe UI Semibold", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.btnCreate.ForeColor = System.Drawing.Color.White;
-            this.btnCreate.Location = new System.Drawing.Point(59, 446);
-            this.btnCreate.Margin = new System.Windows.Forms.Padding(2);
+            this.btnCreate.Location = new System.Drawing.Point(79, 549);
+            this.btnCreate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCreate.Name = "btnCreate";
-            this.btnCreate.Size = new System.Drawing.Size(204, 54);
+            this.btnCreate.Size = new System.Drawing.Size(272, 66);
             this.btnCreate.TabIndex = 11;
             this.btnCreate.Text = "Create account";
             this.btnCreate.Click += new System.EventHandler(this.btnCreate_Click);
@@ -378,10 +384,10 @@ namespace IS201_N22_HTCL
             this.btnShowPasswordSU.CheckedState.InnerBorderColor = System.Drawing.Color.White;
             this.btnShowPasswordSU.CheckedState.InnerColor = System.Drawing.Color.White;
             this.btnShowPasswordSU.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnShowPasswordSU.Location = new System.Drawing.Point(-1, 410);
-            this.btnShowPasswordSU.Margin = new System.Windows.Forms.Padding(2);
+            this.btnShowPasswordSU.Location = new System.Drawing.Point(-1, 505);
+            this.btnShowPasswordSU.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnShowPasswordSU.Name = "btnShowPasswordSU";
-            this.btnShowPasswordSU.Size = new System.Drawing.Size(30, 20);
+            this.btnShowPasswordSU.Size = new System.Drawing.Size(40, 25);
             this.btnShowPasswordSU.TabIndex = 9;
             this.btnShowPasswordSU.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
             this.btnShowPasswordSU.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
@@ -403,13 +409,13 @@ namespace IS201_N22_HTCL
             this.tbFullnameSU.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.tbFullnameSU.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.tbFullnameSU.Location = new System.Drawing.Point(0, 1);
-            this.tbFullnameSU.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.tbFullnameSU.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
             this.tbFullnameSU.MaxLength = 200;
             this.tbFullnameSU.Name = "tbFullnameSU";
             this.tbFullnameSU.PasswordChar = '\0';
             this.tbFullnameSU.PlaceholderText = "Fullname";
             this.tbFullnameSU.SelectedText = "";
-            this.tbFullnameSU.Size = new System.Drawing.Size(318, 49);
+            this.tbFullnameSU.Size = new System.Drawing.Size(424, 60);
             this.tbFullnameSU.TabIndex = 7;
             // 
             // tbEmailSU
@@ -425,15 +431,15 @@ namespace IS201_N22_HTCL
             this.tbEmailSU.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.tbEmailSU.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.tbEmailSU.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.tbEmailSU.Location = new System.Drawing.Point(0, 231);
-            this.tbEmailSU.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.tbEmailSU.Location = new System.Drawing.Point(0, 284);
+            this.tbEmailSU.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
             this.tbEmailSU.MaxLength = 200;
             this.tbEmailSU.Name = "tbEmailSU";
-            this.tbEmailSU.Padding = new System.Windows.Forms.Padding(2, 4, 2, 4);
+            this.tbEmailSU.Padding = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.tbEmailSU.PasswordChar = '\0';
             this.tbEmailSU.PlaceholderText = "Email";
             this.tbEmailSU.SelectedText = "";
-            this.tbEmailSU.Size = new System.Drawing.Size(318, 49);
+            this.tbEmailSU.Size = new System.Drawing.Size(424, 60);
             this.tbEmailSU.TabIndex = 8;
             // 
             // tbAddressSU
@@ -449,14 +455,14 @@ namespace IS201_N22_HTCL
             this.tbAddressSU.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.tbAddressSU.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.tbAddressSU.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.tbAddressSU.Location = new System.Drawing.Point(0, 290);
-            this.tbAddressSU.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.tbAddressSU.Location = new System.Drawing.Point(0, 357);
+            this.tbAddressSU.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
             this.tbAddressSU.MaxLength = 13;
             this.tbAddressSU.Name = "tbAddressSU";
             this.tbAddressSU.PasswordChar = '\0';
             this.tbAddressSU.PlaceholderText = "ID number";
             this.tbAddressSU.SelectedText = "";
-            this.tbAddressSU.Size = new System.Drawing.Size(318, 49);
+            this.tbAddressSU.Size = new System.Drawing.Size(424, 60);
             this.tbAddressSU.TabIndex = 7;
             this.tbAddressSU.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbAddressSU_KeyPress);
             // 
@@ -473,15 +479,15 @@ namespace IS201_N22_HTCL
             this.tbPhonenumSU.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.tbPhonenumSU.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.tbPhonenumSU.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.tbPhonenumSU.Location = new System.Drawing.Point(0, 348);
-            this.tbPhonenumSU.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.tbPhonenumSU.Location = new System.Drawing.Point(0, 428);
+            this.tbPhonenumSU.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
             this.tbPhonenumSU.MaxLength = 10;
             this.tbPhonenumSU.Name = "tbPhonenumSU";
-            this.tbPhonenumSU.Padding = new System.Windows.Forms.Padding(2, 4, 2, 4);
+            this.tbPhonenumSU.Padding = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.tbPhonenumSU.PasswordChar = '\0';
             this.tbPhonenumSU.PlaceholderText = "Phone number";
             this.tbPhonenumSU.SelectedText = "";
-            this.tbPhonenumSU.Size = new System.Drawing.Size(318, 49);
+            this.tbPhonenumSU.Size = new System.Drawing.Size(424, 60);
             this.tbPhonenumSU.TabIndex = 8;
             this.tbPhonenumSU.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbPhonenumSU_KeyPress);
             // 
@@ -492,10 +498,19 @@ namespace IS201_N22_HTCL
             this.panel1.Controls.Add(this.btnClose);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1455, 32);
+            this.panel1.Size = new System.Drawing.Size(1940, 39);
             this.panel1.TabIndex = 2;
+            // 
+            // message
+            // 
+            this.message.Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK;
+            this.message.Caption = null;
+            this.message.Icon = Guna.UI2.WinForms.MessageDialogIcon.None;
+            this.message.Parent = null;
+            this.message.Style = Guna.UI2.WinForms.MessageDialogStyle.Light;
+            this.message.Text = null;
             // 
             // iconButton1
             // 
@@ -507,10 +522,10 @@ namespace IS201_N22_HTCL
             this.iconButton1.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(110)))), ((int)(((byte)(176)))));
             this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton1.IconSize = 20;
-            this.iconButton1.Location = new System.Drawing.Point(1395, 0);
-            this.iconButton1.Margin = new System.Windows.Forms.Padding(2);
+            this.iconButton1.Location = new System.Drawing.Point(1860, 0);
+            this.iconButton1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.iconButton1.Name = "iconButton1";
-            this.iconButton1.Size = new System.Drawing.Size(30, 32);
+            this.iconButton1.Size = new System.Drawing.Size(40, 39);
             this.iconButton1.TabIndex = 3;
             this.iconButton1.UseVisualStyleBackColor = true;
             // 
@@ -524,63 +539,46 @@ namespace IS201_N22_HTCL
             this.btnClose.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(110)))), ((int)(((byte)(176)))));
             this.btnClose.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnClose.IconSize = 20;
-            this.btnClose.Location = new System.Drawing.Point(1425, 0);
-            this.btnClose.Margin = new System.Windows.Forms.Padding(2);
+            this.btnClose.Location = new System.Drawing.Point(1900, 0);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Padding = new System.Windows.Forms.Padding(0, 3, 3, 0);
-            this.btnClose.Size = new System.Drawing.Size(30, 32);
+            this.btnClose.Padding = new System.Windows.Forms.Padding(0, 4, 4, 0);
+            this.btnClose.Size = new System.Drawing.Size(40, 39);
             this.btnClose.TabIndex = 4;
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
-            // message
+            // guna2PictureBox1
             // 
-            this.message.Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK;
-            this.message.Caption = null;
-            this.message.Icon = Guna.UI2.WinForms.MessageDialogIcon.None;
-            this.message.Parent = null;
-            this.message.Style = Guna.UI2.WinForms.MessageDialogStyle.Light;
-            this.message.Text = null;
-            // 
-            // forgotPasswordBtn
-            // 
-            this.forgotPasswordBtn.BorderRadius = 15;
-            this.forgotPasswordBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.forgotPasswordBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.forgotPasswordBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.forgotPasswordBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.forgotPasswordBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.forgotPasswordBtn.FillColor = System.Drawing.Color.Transparent;
-            this.forgotPasswordBtn.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.forgotPasswordBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(110)))), ((int)(((byte)(176)))));
-            this.forgotPasswordBtn.Location = new System.Drawing.Point(185, 364);
-            this.forgotPasswordBtn.Margin = new System.Windows.Forms.Padding(2);
-            this.forgotPasswordBtn.Name = "forgotPasswordBtn";
-            this.forgotPasswordBtn.Size = new System.Drawing.Size(130, 30);
-            this.forgotPasswordBtn.TabIndex = 14;
-            this.forgotPasswordBtn.Text = "Forgot Password";
-            this.forgotPasswordBtn.Click += new System.EventHandler(this.forgotPasswordBtn_Click);
+            this.guna2PictureBox1.ImageRotate = 0F;
+            this.guna2PictureBox1.Location = new System.Drawing.Point(115, 9);
+            this.guna2PictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.guna2PictureBox1.Name = "guna2PictureBox1";
+            this.guna2PictureBox1.Size = new System.Drawing.Size(203, 219);
+            this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.guna2PictureBox1.TabIndex = 12;
+            this.guna2PictureBox1.TabStop = false;
             // 
             // fLogin
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImage = global::IS201_N22_HTCL.Properties.Resources.background;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1455, 884);
+            this.ClientSize = new System.Drawing.Size(1940, 1088);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pnBackground);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "fLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "   ";
             this.pnBackground.ResumeLayout(false);
             this.pnSignIn.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
             this.pnSignUp.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
