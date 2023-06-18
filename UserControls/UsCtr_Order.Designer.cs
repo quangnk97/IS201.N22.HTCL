@@ -87,8 +87,7 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.gvOrder.DefaultCellStyle = dataGridViewCellStyle3;
             this.gvOrder.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(110)))), ((int)(((byte)(176)))));
-            this.gvOrder.Location = new System.Drawing.Point(21, 129);
-            this.gvOrder.Margin = new System.Windows.Forms.Padding(4);
+            this.gvOrder.Location = new System.Drawing.Point(16, 105);
             this.gvOrder.MultiSelect = false;
             this.gvOrder.Name = "gvOrder";
             this.gvOrder.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
@@ -107,7 +106,7 @@
             this.gvOrder.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.gvOrder.RowTemplate.DividerHeight = 1;
             this.gvOrder.RowTemplate.Height = 70;
-            this.gvOrder.Size = new System.Drawing.Size(1653, 916);
+            this.gvOrder.Size = new System.Drawing.Size(1240, 744);
             this.gvOrder.TabIndex = 1;
             this.gvOrder.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.gvOrder.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -221,30 +220,30 @@
             this.tbxSearch.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbxSearch.ForeColor = System.Drawing.Color.Black;
             this.tbxSearch.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.tbxSearch.IconRight = global::IS201_N22_HTCL.Properties.Resources.search_icon;
             this.tbxSearch.IconRightOffset = new System.Drawing.Point(13, 0);
             this.tbxSearch.IconRightSize = new System.Drawing.Size(25, 25);
-            this.tbxSearch.Location = new System.Drawing.Point(1060, 39);
-            this.tbxSearch.Margin = new System.Windows.Forms.Padding(16, 4, 4, 4);
+            this.tbxSearch.Location = new System.Drawing.Point(795, 32);
+            this.tbxSearch.Margin = new System.Windows.Forms.Padding(12, 3, 3, 3);
             this.tbxSearch.Name = "tbxSearch";
-            this.tbxSearch.Padding = new System.Windows.Forms.Padding(13, 5, 0, 5);
+            this.tbxSearch.Padding = new System.Windows.Forms.Padding(10, 4, 0, 4);
             this.tbxSearch.PasswordChar = '\0';
             this.tbxSearch.PlaceholderText = "Enter customer name";
             this.tbxSearch.SelectedText = "";
             this.tbxSearch.ShadowDecoration.BorderRadius = 200;
-            this.tbxSearch.Size = new System.Drawing.Size(615, 55);
+            this.tbxSearch.Size = new System.Drawing.Size(461, 45);
             this.tbxSearch.TabIndex = 2;
             this.tbxSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbxSearch_KeyDown);
             // 
             // UsCtr_Order
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.tbxSearch);
             this.Controls.Add(this.gvOrder);
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "UsCtr_Order";
-            this.Size = new System.Drawing.Size(1692, 1049);
+            this.Size = new System.Drawing.Size(1269, 852);
             this.Load += new System.EventHandler(this.UsCtr_Order_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gvOrder)).EndInit();
             this.ResumeLayout(false);

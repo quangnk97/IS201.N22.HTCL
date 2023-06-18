@@ -210,18 +210,14 @@
     <Compile Include="UserControls\UsCtr_ReturningDisc.Designer.cs">
       <DependentUpon>UsCtr_ReturningDisc.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\UsCtr_Statistic.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UserControls\UsCtr_Statistic.Designer.cs">
-      <DependentUpon>UsCtr_Statistic.cs</DependentUpon>
-    </Compile>
     <Compile Include="UserControls\UsCtr_UserProfilecs.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="UserControls\UsCtr_UserProfilecs.Designer.cs">
       <DependentUpon>UsCtr_UserProfilecs.cs</DependentUpon>
     </Compile>
+    <None Include="Resources\plus_sign.png" />
+    <None Include="Resources\User_logo.png" />
     <None Include="Resources\Super_user_pro1.png" />
     <None Include="Resources\Super_user_pro.png" />
     <None Include="Resources\background.jpg" />

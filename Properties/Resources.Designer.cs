@@ -103,6 +103,16 @@ namespace IS201_N22_HTCL.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap plus_sign {
+            get {
+                object obj = ResourceManager.GetObject("plus_sign", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap search_icon {
             get {
                 object obj = ResourceManager.GetObject("search_icon", resourceCulture);
@@ -113,19 +123,9 @@ namespace IS201_N22_HTCL.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Super_user_pro {
+        internal static System.Drawing.Bitmap User_logo {
             get {
-                object obj = ResourceManager.GetObject("Super_user_pro", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Super_user_pro1 {
-            get {
-                object obj = ResourceManager.GetObject("Super_user_pro1", resourceCulture);
+                object obj = ResourceManager.GetObject("User_logo", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
