@@ -222,6 +222,8 @@
     <Compile Include="UserControls\UsCtr_UserProfilecs.Designer.cs">
       <DependentUpon>UsCtr_UserProfilecs.cs</DependentUpon>
     </Compile>
+    <None Include="Resources\Super_user_pro1.png" />
+    <None Include="Resources\Super_user_pro.png" />
     <None Include="Resources\background.jpg" />
     <EmbeddedResource Include="fChangePassword.resx">
       <DependentUpon>fChangePassword.cs</DependentUpon>
