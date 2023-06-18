@@ -143,6 +143,11 @@ namespace IS201_N22_HTCL.UserControls
 
         private void btnAddDisc_Click(object sender, System.EventArgs e)
         {
+            Add_Disc_To_List();
+        }
+
+        private void Add_Disc_To_List()
+        {
             if (CheckInputDisc() == false)
             {
 
@@ -252,6 +257,12 @@ namespace IS201_N22_HTCL.UserControls
 
         private void gvListDisc_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            Retrieve_Data_From_Import_Disc(sender, e);
+
+        }
+
+        private void Retrieve_Data_From_Import_Disc(object sender, DataGridViewCellEventArgs e)
+        {
             if (e.RowIndex < 0)
                 return;
             tbDiscIDIm.Text = gvListDisc.Rows[e.RowIndex].Cells[0].Value.ToString();
@@ -260,10 +271,14 @@ namespace IS201_N22_HTCL.UserControls
             btnImportDisc.Enabled = true;
 
             fireBaseService.RetrieveImage(pbDiscIm, "Disc/" + gvListDisc.Rows[e.RowIndex].Cells[0].Value.ToString());
-
         }
 
         private void btnImportDisc_Click(object sender, System.EventArgs e)
+        {
+            Import_Disc();
+        }
+
+        private void Import_Disc()
         {
             con.Open();
             string register = "update disc set DISC_AMOUNT = DISC_AMOUNT + " + nbAmountIm.Value +
@@ -276,6 +291,11 @@ namespace IS201_N22_HTCL.UserControls
         }
 
         private void gvDisc_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            Retrieve_Data_From_Manage_Disc(sender, e);
+        }
+
+        private void Retrieve_Data_From_Manage_Disc(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0)
                 return;
@@ -290,6 +310,11 @@ namespace IS201_N22_HTCL.UserControls
         }
 
         private void btnUpdateDisc_Click(object sender, System.EventArgs e)
+        {
+            Update_Disc_To_List();
+        }
+
+        private void Update_Disc_To_List()
         {
             if (CheckInputDisc() == false)
             {
@@ -321,8 +346,12 @@ namespace IS201_N22_HTCL.UserControls
                 LoadDataDiscImport();
             }
         }
-
         private void pcDisc_Click(object sender, System.EventArgs e)
+        {
+            Choose_Image_To_Load();
+        }
+
+        private void Choose_Image_To_Load()
         {
             OpenFileDialog ofd = new OpenFileDialog();
             ofd.Title = "Choose image";
@@ -336,6 +365,11 @@ namespace IS201_N22_HTCL.UserControls
         }
 
         private void tbxDisc_KeyDown(object sender, KeyEventArgs e)
+        {
+            Search_Disc_From_Manage_Disc(sender, e);
+        }
+
+        private void Search_Disc_From_Manage_Disc(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
@@ -360,6 +394,11 @@ namespace IS201_N22_HTCL.UserControls
         }
 
         private void tbxSearchDisc_KeyDown(object sender, KeyEventArgs e)
+        {
+            Search_Disc_From_Import_Disc(sender, e);
+        }
+
+        private void Search_Disc_From_Import_Disc(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
@@ -390,11 +429,21 @@ namespace IS201_N22_HTCL.UserControls
 
         private void tbRentPrice_KeyPress(object sender, KeyPressEventArgs e)
         {
+            Input_Rent_Price(sender, e);
+        }
+
+        private void Input_Rent_Price(object sender, KeyPressEventArgs e)
+        {
             if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
                 e.Handled = true;
         }
 
         private void btnShowPassword_CheckedChanged(object sender, EventArgs e)
+        {
+            Show_Password();
+        }
+
+        private void Show_Password()
         {
             if (btnShowPassword.Checked)
             {
@@ -407,6 +456,11 @@ namespace IS201_N22_HTCL.UserControls
         }
 
         private void btnAddStaff_Click(object sender, System.EventArgs e)
+        {
+            Add_Staff_To_List();
+        }
+
+        private void Add_Staff_To_List()
         {
             if (tbMail.Text == "" || tbUsername.Text == ""
                 || tbPassword.Text == "" || tbIDnum.Text == "" || tbPhonenum.Text == "" || tbAddress.Text == "")
@@ -468,17 +522,32 @@ namespace IS201_N22_HTCL.UserControls
 
         private void tbIDnum_KeyPress(object sender, KeyPressEventArgs e)
         {
+            Input_ID_number(sender, e);
+        }
+
+        private void Input_ID_number(object sender, KeyPressEventArgs e)
+        {
             if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
                 e.Handled = true;
         }
 
         private void tbPhonenum_KeyPress(object sender, KeyPressEventArgs e)
         {
+            Input_Phone_number(sender, e);
+        }
+
+        private void Input_Phone_number(object sender, KeyPressEventArgs e)
+        {
             if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
                 e.Handled = true;
         }
 
         private void gvStaff_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            Retrieve_Staff_Information(sender, e);
+        }
+
+        private void Retrieve_Staff_Information(object sender, DataGridViewCellEventArgs e)
         {
             string position = "";
             con.Open();
@@ -514,6 +583,11 @@ namespace IS201_N22_HTCL.UserControls
 
         private void btnCreateChart_Click(object sender, EventArgs e)
         {
+            Create_Chart();
+        }
+
+        private void Create_Chart()
+        {
             string currentYear = DateTime.Now.Year.ToString();
             var values = new ChartValues<int>();
             var dates = new List<string>();
@@ -544,6 +618,11 @@ namespace IS201_N22_HTCL.UserControls
         }
 
         private void cbMode_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Choose_Mode();
+        }
+
+        private void Choose_Mode()
         {
             cbValues.Items.Clear();
             if (cbMode.SelectedIndex == 0)
@@ -580,6 +659,11 @@ namespace IS201_N22_HTCL.UserControls
         }
 
         private void btnCreateReport_Click(object sender, EventArgs e)
+        {
+            Create_Report(sender, e);
+        }
+
+        private void Create_Report(object sender, EventArgs e)
         {
             string reportTitle = "REPORT";
             string sql = "select RETURN_DATE, TOTAL_PRICE, USER_FULLNAME from RETURN_DISC,RENT, USERS " +

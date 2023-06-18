@@ -69,6 +69,11 @@ namespace IS201_N22_HTCL.UserControls
 
         private void dgvOrder_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            Retrieve_Order_Information(sender, e);
+        }
+
+        private void Retrieve_Order_Information(object sender, DataGridViewCellEventArgs e)
+        {
             if (e.RowIndex < 0)
                 return;
             int ID = int.Parse(gvOrder.Rows[e.RowIndex].Cells[0].Value.ToString());
@@ -83,6 +88,11 @@ namespace IS201_N22_HTCL.UserControls
         }
 
         private void tbxSearch_KeyDown(object sender, KeyEventArgs e)
+        {
+            Search_Order(sender, e);
+        }
+
+        private void Search_Order(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
