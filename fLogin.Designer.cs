@@ -1,4 +1,5 @@
 ﻿using IS201_N22_HTCL.Properties;
+using System.Resources;
 
 namespace IS201_N22_HTCL
 {
@@ -31,10 +32,12 @@ namespace IS201_N22_HTCL
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fLogin));
             this.guna2BorderlessForm1 = new Guna.UI2.WinForms.Guna2BorderlessForm(this.components);
             this.pnBackground = new Guna.UI2.WinForms.Guna2ShadowPanel();
             this.pnSignIn = new Guna.UI2.WinForms.Guna2Panel();
             this.forgotPasswordBtn = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.btnSignUp = new Guna.UI2.WinForms.Guna2Button();
             this.btnLogin = new Guna.UI2.WinForms.Guna2Button();
             this.btnShowPassword = new Guna.UI2.WinForms.Guna2ToggleSwitch();
@@ -54,15 +57,14 @@ namespace IS201_N22_HTCL
             this.tbAddressSU = new Guna.UI2.WinForms.Guna2TextBox();
             this.tbPhonenumSU = new Guna.UI2.WinForms.Guna2TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.message = new Guna.UI2.WinForms.Guna2MessageDialog();
             this.iconButton1 = new FontAwesome.Sharp.IconButton();
             this.btnClose = new FontAwesome.Sharp.IconButton();
-            this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.message = new Guna.UI2.WinForms.Guna2MessageDialog();
             this.pnBackground.SuspendLayout();
             this.pnSignIn.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             this.pnSignUp.SuspendLayout();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // guna2BorderlessForm1
@@ -120,6 +122,21 @@ namespace IS201_N22_HTCL
             this.forgotPasswordBtn.TabIndex = 14;
             this.forgotPasswordBtn.Text = "Forgot Password";
             this.forgotPasswordBtn.Click += new System.EventHandler(this.forgotPasswordBtn_Click);
+            // 
+            // guna2PictureBox1
+            // 
+            this.guna2PictureBox1.BackgroundImage = global::IS201_N22_HTCL.Properties.Resources.Blue_logo;
+            this.guna2PictureBox1.Image = global::IS201_N22_HTCL.Properties.Resources.Blue_logo;
+            this.guna2PictureBox1.ImageRotate = 0F;
+            this.guna2PictureBox1.InitialImage = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox1.InitialImage")));
+            this.guna2PictureBox1.Location = new System.Drawing.Point(115, 9);
+            this.guna2PictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.guna2PictureBox1.Name = "guna2PictureBox1";
+            this.guna2PictureBox1.Size = new System.Drawing.Size(203, 219);
+            this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.guna2PictureBox1.TabIndex = 12;
+            this.guna2PictureBox1.TabStop = false;
+            this.guna2PictureBox1.Click += new System.EventHandler(this.guna2PictureBox1_Click);
             // 
             // btnSignUp
             // 
@@ -191,7 +208,7 @@ namespace IS201_N22_HTCL
             this.tbUsername.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.tbUsername.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.tbUsername.Location = new System.Drawing.Point(4, 282);
-            this.tbUsername.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
+            this.tbUsername.Margin = new System.Windows.Forms.Padding(7);
             this.tbUsername.MaxLength = 20;
             this.tbUsername.Name = "tbUsername";
             this.tbUsername.PasswordChar = '\0';
@@ -214,7 +231,7 @@ namespace IS201_N22_HTCL
             this.tbPassword.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.tbPassword.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.tbPassword.Location = new System.Drawing.Point(4, 378);
-            this.tbPassword.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
+            this.tbPassword.Margin = new System.Windows.Forms.Padding(7);
             this.tbPassword.MaxLength = 20;
             this.tbPassword.Name = "tbPassword";
             this.tbPassword.Padding = new System.Windows.Forms.Padding(3, 5, 3, 5);
@@ -270,7 +287,7 @@ namespace IS201_N22_HTCL
             this.tbUsernameSU.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.tbUsernameSU.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.tbUsernameSU.Location = new System.Drawing.Point(0, 71);
-            this.tbUsernameSU.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
+            this.tbUsernameSU.Margin = new System.Windows.Forms.Padding(7);
             this.tbUsernameSU.MaxLength = 20;
             this.tbUsernameSU.Name = "tbUsernameSU";
             this.tbUsernameSU.PasswordChar = '\0';
@@ -293,7 +310,7 @@ namespace IS201_N22_HTCL
             this.tbAddress.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.tbAddress.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.tbAddress.Location = new System.Drawing.Point(0, 212);
-            this.tbAddress.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
+            this.tbAddress.Margin = new System.Windows.Forms.Padding(7);
             this.tbAddress.MaxLength = 2000;
             this.tbAddress.Name = "tbAddress";
             this.tbAddress.Padding = new System.Windows.Forms.Padding(3, 5, 3, 5);
@@ -317,7 +334,7 @@ namespace IS201_N22_HTCL
             this.tbPasswordSU.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.tbPasswordSU.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.tbPasswordSU.Location = new System.Drawing.Point(0, 140);
-            this.tbPasswordSU.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
+            this.tbPasswordSU.Margin = new System.Windows.Forms.Padding(7);
             this.tbPasswordSU.MaxLength = 20;
             this.tbPasswordSU.Name = "tbPasswordSU";
             this.tbPasswordSU.Padding = new System.Windows.Forms.Padding(3, 5, 3, 5);
@@ -409,7 +426,7 @@ namespace IS201_N22_HTCL
             this.tbFullnameSU.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.tbFullnameSU.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.tbFullnameSU.Location = new System.Drawing.Point(0, 1);
-            this.tbFullnameSU.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
+            this.tbFullnameSU.Margin = new System.Windows.Forms.Padding(7);
             this.tbFullnameSU.MaxLength = 200;
             this.tbFullnameSU.Name = "tbFullnameSU";
             this.tbFullnameSU.PasswordChar = '\0';
@@ -432,7 +449,7 @@ namespace IS201_N22_HTCL
             this.tbEmailSU.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.tbEmailSU.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.tbEmailSU.Location = new System.Drawing.Point(0, 284);
-            this.tbEmailSU.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
+            this.tbEmailSU.Margin = new System.Windows.Forms.Padding(7);
             this.tbEmailSU.MaxLength = 200;
             this.tbEmailSU.Name = "tbEmailSU";
             this.tbEmailSU.Padding = new System.Windows.Forms.Padding(3, 5, 3, 5);
@@ -456,7 +473,7 @@ namespace IS201_N22_HTCL
             this.tbAddressSU.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.tbAddressSU.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.tbAddressSU.Location = new System.Drawing.Point(0, 357);
-            this.tbAddressSU.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
+            this.tbAddressSU.Margin = new System.Windows.Forms.Padding(7);
             this.tbAddressSU.MaxLength = 13;
             this.tbAddressSU.Name = "tbAddressSU";
             this.tbAddressSU.PasswordChar = '\0';
@@ -480,7 +497,7 @@ namespace IS201_N22_HTCL
             this.tbPhonenumSU.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.tbPhonenumSU.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.tbPhonenumSU.Location = new System.Drawing.Point(0, 428);
-            this.tbPhonenumSU.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
+            this.tbPhonenumSU.Margin = new System.Windows.Forms.Padding(7);
             this.tbPhonenumSU.MaxLength = 10;
             this.tbPhonenumSU.Name = "tbPhonenumSU";
             this.tbPhonenumSU.Padding = new System.Windows.Forms.Padding(3, 5, 3, 5);
@@ -502,15 +519,6 @@ namespace IS201_N22_HTCL
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1940, 39);
             this.panel1.TabIndex = 2;
-            // 
-            // message
-            // 
-            this.message.Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK;
-            this.message.Caption = null;
-            this.message.Icon = Guna.UI2.WinForms.MessageDialogIcon.None;
-            this.message.Parent = null;
-            this.message.Style = Guna.UI2.WinForms.MessageDialogStyle.Light;
-            this.message.Text = null;
             // 
             // iconButton1
             // 
@@ -548,16 +556,14 @@ namespace IS201_N22_HTCL
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
-            // guna2PictureBox1
+            // message
             // 
-            this.guna2PictureBox1.ImageRotate = 0F;
-            this.guna2PictureBox1.Location = new System.Drawing.Point(115, 9);
-            this.guna2PictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.guna2PictureBox1.Name = "guna2PictureBox1";
-            this.guna2PictureBox1.Size = new System.Drawing.Size(203, 219);
-            this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.guna2PictureBox1.TabIndex = 12;
-            this.guna2PictureBox1.TabStop = false;
+            this.message.Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK;
+            this.message.Caption = null;
+            this.message.Icon = Guna.UI2.WinForms.MessageDialogIcon.None;
+            this.message.Parent = null;
+            this.message.Style = Guna.UI2.WinForms.MessageDialogStyle.Light;
+            this.message.Text = null;
             // 
             // fLogin
             // 
@@ -576,9 +582,9 @@ namespace IS201_N22_HTCL
             this.Text = "   ";
             this.pnBackground.ResumeLayout(false);
             this.pnSignIn.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
             this.pnSignUp.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }

@@ -179,5 +179,10 @@ namespace IS201_N22_HTCL
             fForgotPassword fForgotPassword = new fForgotPassword();
             fForgotPassword.ShowDialog();
         }
+
+        private void guna2PictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
