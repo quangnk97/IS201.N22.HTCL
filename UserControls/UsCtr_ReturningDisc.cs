@@ -140,16 +140,27 @@ namespace IS201_N22_HTCL.UserControls
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
+            UpdateDamageDisc();
+
+        }
+
+        private void UpdateDamageDisc()
+        {
             if (tbDiscName != null)
             {
                 damageFine += 50000 * int.Parse(nbDamageDisc.Value.ToString());
                 lbDmgFine.Text = string.Format("{0:#,###} VNĐ", damageFine);
                 lnFinalPrice.Text = string.Format("{0:#,###} VNĐ", ConvertToMoney(lnFinalPrice.Text) + ConvertToMoney(lbDmgFine.Text));
             }
-
         }
 
         private void btnReturn_Click(object sender, EventArgs e)
+        {
+            ReturnDisc();
+
+        }
+
+        private void ReturnDisc()
         {
             string update = "";
             DateTime dateTime = DateTime.Now;
@@ -194,7 +205,6 @@ namespace IS201_N22_HTCL.UserControls
             con.Close();
 
             message.Show();
-
         }
     }
 }

@@ -11,9 +11,9 @@ namespace IS201_N22_HTCL
 
     {
         UsCtr_HomePage HomePage;
-        UsCtr_Order Order;
         UsCtr_Cart Cart;
         UsCtr_Manage Manage;
+        UsCtr_Order Order;
         ShopView Store;
         UsCtr_UserProfilecs UserProfilecs;
         SqlCommand cmd;
@@ -27,11 +27,10 @@ namespace IS201_N22_HTCL
             Order = new UsCtr_Order();
             Store = new ShopView();
             UserProfilecs = new UsCtr_UserProfilecs();
-
             pnView.Controls.Add(HomePage);
-            pnView.Controls.Add(Order);
             pnView.Controls.Add(Cart);
             pnView.Controls.Add(Manage);
+            pnView.Controls.Add(Order);
             pnView.Controls.Add(Store);
             pnView.Controls.Add(UserProfilecs);
             HomePage.BringToFront();
@@ -54,6 +53,22 @@ namespace IS201_N22_HTCL
             }
         }
 
+        private void btnHome_Click(object sender, EventArgs e)
+        {
+            HomePage.BringToFront();
+        }
+
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void btnStore_Click(object sender, EventArgs e)
+        {
+            Store.BringToFront();
+            Store.LoadAllProduct("");
+        }
 
         private void btnLogOut_Click(object sender, EventArgs e)
         {
@@ -68,25 +83,41 @@ namespace IS201_N22_HTCL
             this.pictureBox1.SizeMode = PictureBoxSizeMode.AutoSize;
         }
 
+        private void btnCart_Click(object sender, EventArgs e)
+        {
+            Cart.BringToFront();
+            Cart.UpdateCart();
+        }
+
+        private void btnOrder_Click(object sender, EventArgs e)
+        {
+            Order.BringToFront();
+            Order.LoadData();
+        }
+
+        private void btnManage_Click(object sender, EventArgs e)
+        {
+            Manage.BringToFront();
+        }
+
+        private void btnHome_Click_1(object sender, EventArgs e)
+        {
+            HomePage.BringToFront();
+        }
+
+        private void btnUserProfile_Click(object sender, EventArgs e)
+        {
+            UserProfilecs.BringToFront();
+        }
 
         private void btnMinimize_Click(object sender, EventArgs e)
         {
             WindowState = FormWindowState.Minimized;
         }
 
-        private void btnHome_Click(object sender, EventArgs e)
+        private void btnUserProfile_Click_1(object sender, EventArgs e)
         {
-            HomePage.BringToFront();
-        }
-
-        private void btnClose_Click_1(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
-        private void btnOrder_Click(object sender, EventArgs e)
-        {
-            Order.BringToFront();
+            UserProfilecs.BringToFront();
         }
     }
 }

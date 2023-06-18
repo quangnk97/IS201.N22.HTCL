@@ -74,6 +74,11 @@ namespace IS201_N22_HTCL.UserControls
 
         private void btnConfirm_Click(object sender, EventArgs e)
         {
+            ConfirmOrder();
+        }
+
+        private void ConfirmOrder()
+        {
             int status = 0;
             con.Open();
             string loadDT = "select STATUS_ID from STATUS where STATUS_NAME = 'Not return'";
