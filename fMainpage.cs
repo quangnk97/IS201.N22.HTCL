@@ -51,6 +51,10 @@ namespace IS201_N22_HTCL
                 btnOrder.Visible = false;
                 btnManage.Visible = false;
             }
+            if (name.CompareTo("Staff") == 0)
+            {
+                btnManage.Visible = false;
+            }
         }
 
         private void btnHome_Click(object sender, EventArgs e)
