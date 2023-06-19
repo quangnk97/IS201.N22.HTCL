@@ -71,6 +71,7 @@
             this.tbxSearch.ShadowDecoration.BorderRadius = 200;
             this.tbxSearch.Size = new System.Drawing.Size(421, 48);
             this.tbxSearch.TabIndex = 3;
+            this.tbxSearch.TextChanged += new System.EventHandler(this.tbxSearch_TextChanged);
             this.tbxSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbxSearch_KeyDown);
             // 
             // pnView

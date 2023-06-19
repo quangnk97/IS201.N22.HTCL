@@ -99,7 +99,7 @@ namespace IS201_N22_HTCL.UserControls
                 adapter = new SqlDataAdapter("select RENT_ID, USER_FULLNAME, RENT_DATE, DUE_DATE, RENT_DEPOSIT, TOTAL_PRICE, STATUS_NAME " +
                                         "from RENT, USERS, STATUS " +
                                          "where RENT.CUSTOMER_ID = USERS.USER_ID " +
-                                         "and RENT.STATUS = STATUS.STATUS_ID and USER_FULLNAME = '" + tbxSearch.Text.Trim() + "'", con);
+                                         "and RENT.STATUS = STATUS.STATUS_ID and USER_FULLNAME LIKE '%" + tbxSearch.Text.Trim() + "%'", con);
 
                 // Bộ phát sinh lệnh
                 SqlCommandBuilder cmd = new SqlCommandBuilder(adapter);
@@ -120,6 +120,40 @@ namespace IS201_N22_HTCL.UserControls
                 current = BindingContext[dataTable];
                 return;
             }
+        }
+
+        private void tbxSearch_TextChanged(object sender, EventArgs e)
+        {
+            if (tbxSearch.Text.Trim().CompareTo("") != 0)
+            {
+                adapter = new SqlDataAdapter("select RENT_ID, USER_FULLNAME, RENT_DATE, DUE_DATE, RENT_DEPOSIT, TOTAL_PRICE, STATUS_NAME " +
+                                       "from RENT, USERS, STATUS " +
+                                        "where RENT.CUSTOMER_ID = USERS.USER_ID " +
+                                        "and RENT.STATUS = STATUS.STATUS_ID and USER_FULLNAME LIKE '%" + tbxSearch.Text.Trim() + "%'", con);
+
+                // Bộ phát sinh lệnh
+                SqlCommandBuilder cmd = new SqlCommandBuilder(adapter);
+
+                // Khởi tạo bảng 
+                dataTable = new DataTable();
+
+                // Gán dữ liệu cho dataTable
+                adapter.FillSchema(dataTable, SchemaType.Mapped);
+
+                // Lấy dữ liệu đổ vào dataTable 
+                adapter.Fill(dataTable);
+
+                // Gán dữ liệu nguồn cho DataGridView
+                gvOrder.DataSource = dataTable;
+
+                // Gán nguồn
+                current = BindingContext[dataTable];
+            }
+            else
+            {
+                LoadData();
+            }
+            return;
         }
     }
 }
