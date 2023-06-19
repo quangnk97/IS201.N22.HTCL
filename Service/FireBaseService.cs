@@ -41,7 +41,7 @@ namespace IS201_N22_HTCL.Service
             SetResponse response = await client.SetTaskAsync(ImagePath, data);
             ImageModel result = response.ResultAs<ImageModel>();
 
-            imgBox.Image = null;
+            //imgBox.Image = null;
 
         }
 

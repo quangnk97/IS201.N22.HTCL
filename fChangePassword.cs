@@ -51,8 +51,9 @@ namespace IS201_N22_HTCL
             {
                 string password = "";
                 con.Open();
-                string loadDT = "select USER_PASSWORD from USERS where USER_ID = " + fLogin.ID;
+                string loadDT = "select USER_PASSWORD from USERS where USER_ID = @ID";
                 SqlCommand cmd = new SqlCommand(loadDT, con);
+                cmd.Parameters.AddWithValue("@ID", fLogin.ID);
                 SqlDataReader reader = cmd.ExecuteReader();
                 if (reader.HasRows)
                 {
@@ -71,12 +72,17 @@ namespace IS201_N22_HTCL
                 else
                 {
                     con.Open();
-                    string update = "update USERS set USER_PASSWORD = " + tbNewPass.Text + " where USER_ID = " + fLogin.ID;
+                    string update = "update USERS set USER_PASSWORD = @NewPass where USER_ID = @ID";
                     cmd = new SqlCommand(update, con);
+                    cmd.Parameters.AddWithValue("@NewPass", tbNewPass.Text);
+                    cmd.Parameters.AddWithValue("@ID", fLogin.ID);
                     cmd.ExecuteNonQuery();
                     con.Close();
 
-                    lbNotification.Text = "Update successfully!";
+                    lbNotification.Text = "Update successful!";
+                    message.Caption = "Update successful!";
+                    message.Show();
+                    this.Close();
                 }
             }
         }
