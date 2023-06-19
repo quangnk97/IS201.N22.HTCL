@@ -1,4 +1,5 @@
-﻿using IS201_N22_HTCL.Service;
+﻿using Guna.UI2.WinForms;
+using IS201_N22_HTCL.Service;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -7,6 +8,7 @@ using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -21,7 +23,10 @@ namespace IS201_N22_HTCL.UserControls
         {
             InitializeComponent();
             LoadData();
-            RetrieveAvatar();
+            if (avatarImgBox.Image == null)
+            {
+                RetrieveAvatar();
+            }
         }
 
         private void LoadData()
@@ -43,7 +48,7 @@ namespace IS201_N22_HTCL.UserControls
                 reader.Close();
             }
             con.Close();
-            RetrieveAvatar();
+            //RetrieveAvatar();
         }
 
         private void RetrieveAvatar()
@@ -51,20 +56,31 @@ namespace IS201_N22_HTCL.UserControls
             fireBaseConnection.RetrieveImage(avatarImgBox, "Avatar/" + fLogin.ID);
         }
 
-
         private void guna2CirclePictureBox1_Click(object sender, System.EventArgs e)
         {
-            OpenFileDialog ofd = new OpenFileDialog();
-            ofd.Title = "Choose image";
-            ofd.Filter = "Image Files (*.bmp;*.png;*.jpg)|*.bmp;*.png;*.jpg";
-
-            if (ofd.ShowDialog() == DialogResult.OK)
+            Thread thread = new Thread(() =>
             {
-                Image img = new Bitmap(ofd.FileName);
-                avatarImgBox.Image = img.GetThumbnailImage(360, 200, null, new IntPtr());
+                if (Thread.CurrentThread.GetApartmentState() != ApartmentState.STA)
+                {
+                    Thread.CurrentThread.SetApartmentState(ApartmentState.STA);
+                }
 
+                OpenFileDialog ofd = new OpenFileDialog();
+                ofd.Title = "Choose image";
+                ofd.Filter = "Image Files (*.bmp;*.png;*.jpg)|*.bmp;*.png;*.jpg";
 
-            }
+                if (ofd.ShowDialog() == DialogResult.OK)
+                {
+                    Image img = new Bitmap(ofd.FileName);
+                    avatarImgBox.Image = img.GetThumbnailImage(360, 200, null, new IntPtr());
+
+                    // Load the image in guna2CirclePictureBox1
+                    avatarImgBox.Image = Image.FromFile(ofd.FileName);
+                }
+            });
+
+            thread.SetApartmentState(ApartmentState.STA);
+            thread.Start();
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)

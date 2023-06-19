@@ -115,10 +115,10 @@ namespace IS201_N22_HTCL
             this.forgotPasswordBtn.FillColor = System.Drawing.Color.Transparent;
             this.forgotPasswordBtn.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.forgotPasswordBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(110)))), ((int)(((byte)(176)))));
-            this.forgotPasswordBtn.Location = new System.Drawing.Point(247, 448);
+            this.forgotPasswordBtn.Location = new System.Drawing.Point(208, 451);
             this.forgotPasswordBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.forgotPasswordBtn.Name = "forgotPasswordBtn";
-            this.forgotPasswordBtn.Size = new System.Drawing.Size(173, 37);
+            this.forgotPasswordBtn.Size = new System.Drawing.Size(216, 37);
             this.forgotPasswordBtn.TabIndex = 14;
             this.forgotPasswordBtn.Text = "Forgot Password";
             this.forgotPasswordBtn.Click += new System.EventHandler(this.forgotPasswordBtn_Click);
@@ -149,10 +149,10 @@ namespace IS201_N22_HTCL
             this.btnSignUp.FillColor = System.Drawing.Color.Transparent;
             this.btnSignUp.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.btnSignUp.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(110)))), ((int)(((byte)(176)))));
-            this.btnSignUp.Location = new System.Drawing.Point(115, 591);
+            this.btnSignUp.Location = new System.Drawing.Point(70, 604);
             this.btnSignUp.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSignUp.Name = "btnSignUp";
-            this.btnSignUp.Size = new System.Drawing.Size(215, 43);
+            this.btnSignUp.Size = new System.Drawing.Size(300, 43);
             this.btnSignUp.TabIndex = 10;
             this.btnSignUp.Text = "Create account";
             this.btnSignUp.Click += new System.EventHandler(this.btnSignUp_Click);
@@ -168,10 +168,10 @@ namespace IS201_N22_HTCL
             this.btnLogin.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(110)))), ((int)(((byte)(176)))));
             this.btnLogin.Font = new System.Drawing.Font("Segoe UI Semibold", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.btnLogin.ForeColor = System.Drawing.Color.White;
-            this.btnLogin.Location = new System.Drawing.Point(79, 521);
+            this.btnLogin.Location = new System.Drawing.Point(45, 524);
             this.btnLogin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(272, 65);
+            this.btnLogin.Size = new System.Drawing.Size(340, 65);
             this.btnLogin.TabIndex = 11;
             this.btnLogin.Text = "Sign in";
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
@@ -207,14 +207,15 @@ namespace IS201_N22_HTCL
             this.tbUsername.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.tbUsername.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.tbUsername.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.tbUsername.Location = new System.Drawing.Point(4, 282);
-            this.tbUsername.Margin = new System.Windows.Forms.Padding(7);
+            this.tbUsername.Location = new System.Drawing.Point(4, 248);
+            this.tbUsername.Margin = new System.Windows.Forms.Padding(2);
             this.tbUsername.MaxLength = 20;
             this.tbUsername.Name = "tbUsername";
+            this.tbUsername.Padding = new System.Windows.Forms.Padding(0, 0, 4, 0);
             this.tbUsername.PasswordChar = '\0';
             this.tbUsername.PlaceholderText = "Username";
             this.tbUsername.SelectedText = "";
-            this.tbUsername.Size = new System.Drawing.Size(416, 60);
+            this.tbUsername.Size = new System.Drawing.Size(416, 76);
             this.tbUsername.TabIndex = 7;
             // 
             // tbPassword
@@ -230,15 +231,14 @@ namespace IS201_N22_HTCL
             this.tbPassword.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.tbPassword.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.tbPassword.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.tbPassword.Location = new System.Drawing.Point(4, 378);
-            this.tbPassword.Margin = new System.Windows.Forms.Padding(7);
+            this.tbPassword.Location = new System.Drawing.Point(4, 341);
+            this.tbPassword.Margin = new System.Windows.Forms.Padding(2);
             this.tbPassword.MaxLength = 20;
             this.tbPassword.Name = "tbPassword";
-            this.tbPassword.Padding = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.tbPassword.PasswordChar = '•';
             this.tbPassword.PlaceholderText = "Password";
             this.tbPassword.SelectedText = "";
-            this.tbPassword.Size = new System.Drawing.Size(416, 60);
+            this.tbPassword.Size = new System.Drawing.Size(416, 76);
             this.tbPassword.TabIndex = 8;
             this.tbPassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbPassword_KeyDown);
             // 
@@ -250,7 +250,7 @@ namespace IS201_N22_HTCL
             this.guna2HtmlLabel1.Location = new System.Drawing.Point(59, 454);
             this.guna2HtmlLabel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
-            this.guna2HtmlLabel1.Size = new System.Drawing.Size(232, 37);
+            this.guna2HtmlLabel1.Size = new System.Drawing.Size(143, 37);
             this.guna2HtmlLabel1.TabIndex = 13;
             this.guna2HtmlLabel1.Text = "Show password";
             // 
@@ -386,10 +386,10 @@ namespace IS201_N22_HTCL
             this.btnCreate.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(110)))), ((int)(((byte)(176)))));
             this.btnCreate.Font = new System.Drawing.Font("Segoe UI Semibold", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.btnCreate.ForeColor = System.Drawing.Color.White;
-            this.btnCreate.Location = new System.Drawing.Point(79, 549);
+            this.btnCreate.Location = new System.Drawing.Point(45, 549);
             this.btnCreate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCreate.Name = "btnCreate";
-            this.btnCreate.Size = new System.Drawing.Size(272, 66);
+            this.btnCreate.Size = new System.Drawing.Size(340, 66);
             this.btnCreate.TabIndex = 11;
             this.btnCreate.Text = "Create account";
             this.btnCreate.Click += new System.EventHandler(this.btnCreate_Click);

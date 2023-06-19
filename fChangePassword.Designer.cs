@@ -39,6 +39,7 @@
             this.tbOldPass = new Guna.UI2.WinForms.Guna2TextBox();
             this.btnShowPassword = new Guna.UI2.WinForms.Guna2ToggleSwitch();
             this.lbNotification = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.message = new Guna.UI2.WinForms.Guna2MessageDialog();
             this.SuspendLayout();
             // 
             // guna2BorderlessForm1
@@ -47,6 +48,15 @@
             this.guna2BorderlessForm1.ContainerControl = this;
             this.guna2BorderlessForm1.DockIndicatorTransparencyValue = 0.6D;
             this.guna2BorderlessForm1.TransparentWhileDrag = true;
+            // 
+            // message
+            // 
+            this.message.Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK;
+            this.message.Caption = null;
+            this.message.Icon = Guna.UI2.WinForms.MessageDialogIcon.None;
+            this.message.Parent = null;
+            this.message.Style = Guna.UI2.WinForms.MessageDialogStyle.Light;
+            this.message.Text = null;
             // 
             // btnClose
             // 
@@ -237,5 +247,6 @@
         private Guna.UI2.WinForms.Guna2TextBox tbOldPass;
         private Guna.UI2.WinForms.Guna2ToggleSwitch btnShowPassword;
         private Guna.UI2.WinForms.Guna2HtmlLabel lbNotification;
+        private Guna.UI2.WinForms.Guna2MessageDialog message;
     }
 }
