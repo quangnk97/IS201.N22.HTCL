@@ -44,6 +44,7 @@ namespace IS201_N22_HTCL.UserControls
 
         public void LoadAllProduct(string discName)
         {
+            pnView.Controls.Clear();
             int sum;
             string query;
             if (discName.CompareTo("") == 0)
@@ -105,7 +106,6 @@ namespace IS201_N22_HTCL.UserControls
         {
             if (e.KeyCode == Keys.Enter)
             {
-                pnView.Controls.Clear();
                 LoadAllProduct(tbxSearch.Text);
                 return;
             }
@@ -115,7 +115,6 @@ namespace IS201_N22_HTCL.UserControls
         {
             if (tbxSearch.Text.CompareTo("") != 0)
             {
-                pnView.Controls.Clear();
                 LoadAllProduct(tbxSearch.Text);
             }
             else
