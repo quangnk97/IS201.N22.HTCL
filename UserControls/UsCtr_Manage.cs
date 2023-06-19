@@ -406,7 +406,7 @@ namespace IS201_N22_HTCL.UserControls
                 {
                     con.Open();
                     string sql = "select DISC_ID, DISC_NAME, DISC_INSTOCK, DISC_PRICE from DISC, PRODUCER, GENRE " +
-                                    "where DISC.DISC_PRODUCER = PRODUCER.PRODUCER_ID and DISC.DISC_GENRE = GENRE.GENRE_ID and DISC_NAME = '" + tbxSearchDisc.Text.Trim() + "'";
+                                    "where DISC.DISC_PRODUCER = PRODUCER.PRODUCER_ID and DISC.DISC_GENRE = GENRE.GENRE_ID and DISC_NAME LIKE '%" + tbxSearchDisc.Text.Trim() + "%'";
                     cmd = new SqlCommand(sql, con);
                     cmd.CommandType = CommandType.Text;
                     da = new SqlDataAdapter(cmd);
@@ -424,7 +424,25 @@ namespace IS201_N22_HTCL.UserControls
 
         private void tbxSearchDisc_TextChanged(object sender, EventArgs e)
         {
+            if (tbxSearchDisc.Text.CompareTo("") != 0)
+            {
+                con.Open();
+                string sql = "select DISC_ID, DISC_NAME, DISC_INSTOCK, DISC_PRICE from DISC, PRODUCER, GENRE " +
+                                "where DISC.DISC_PRODUCER = PRODUCER.PRODUCER_ID and DISC.DISC_GENRE = GENRE.GENRE_ID and DISC_NAME LIKE '%" + tbxSearchDisc.Text.Trim() + "%'";
+                cmd = new SqlCommand(sql, con);
+                cmd.CommandType = CommandType.Text;
+                da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                con.Close();
+                gvListDisc.DataSource = dt;
 
+            }
+            else
+            {
+                LoadDataDiscImport();
+
+            }
         }
 
         private void tbRentPrice_KeyPress(object sender, KeyPressEventArgs e)
@@ -740,6 +758,27 @@ namespace IS201_N22_HTCL.UserControls
             }
             catch (Exception ex)
             {
+            }
+        }
+
+        private void tbxDisc_TextChanged(object sender, EventArgs e)
+        {
+            if (tbxDisc.Text.CompareTo("") != 0)
+            {
+                con.Open();
+                string sql = "select DISC_ID, DISC_NAME, PRODUCER_NAME, GENRE_NAME, DISC_AMOUNT, DISC_PRICE from DISC, PRODUCER, GENRE " +
+                            "where DISC.DISC_PRODUCER = PRODUCER.PRODUCER_ID and DISC.DISC_GENRE = GENRE.GENRE_ID and DISC_NAME LIKE '%" + tbxDisc.Text.Trim() + "%'";
+                cmd = new SqlCommand(sql, con);
+                cmd.CommandType = CommandType.Text;
+                da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                con.Close();
+                gvDisc.DataSource = dt;
+            }
+            else
+            {
+                LoadDataDisc();
             }
         }
     }

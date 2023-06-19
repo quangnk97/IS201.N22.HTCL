@@ -1,13 +1,7 @@
 ﻿using IS201_N22_HTCL.Service;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace IS201_N22_HTCL.UserControls
@@ -61,10 +55,10 @@ namespace IS201_N22_HTCL.UserControls
             }
             else
             {
-                sum = int.Parse(SQLConnection.GetFieldValues("select COUNT(*) from DISC WHERE DISC_NAME = N'" + tbxSearch.Text.Trim() + "'"));
+                sum = int.Parse(SQLConnection.GetFieldValues("select COUNT(*) from DISC WHERE DISC_NAME LIKE N'%" + tbxSearch.Text.Trim() + "%'"));
                 query = "select DISC_ID, DISC_NAME, GENRE_NAME, DISC_PRICE " +
                 "from DISC, GENRE " +
-                "where DISC.DISC_GENRE = GENRE.GENRE_ID and DISC_INSTOCK > 0 and DISC_NAME = N'" + discName + "'";
+                "where DISC.DISC_GENRE = GENRE.GENRE_ID and DISC_INSTOCK > 0 and DISC_NAME LIKE N'%" + discName + "%'";
             }
             if (sum == 0) return;
             ShopItem[] shopItem = new ShopItem[sum];
@@ -114,6 +108,19 @@ namespace IS201_N22_HTCL.UserControls
                 pnView.Controls.Clear();
                 LoadAllProduct(tbxSearch.Text);
                 return;
+            }
+        }
+
+        private void tbxSearch_TextChanged(object sender, EventArgs e)
+        {
+            if (tbxSearch.Text.CompareTo("") != 0)
+            {
+                pnView.Controls.Clear();
+                LoadAllProduct(tbxSearch.Text);
+            }
+            else
+            {
+                LoadAllProduct("");
             }
         }
     }

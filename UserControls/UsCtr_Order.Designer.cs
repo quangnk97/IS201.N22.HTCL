@@ -233,6 +233,7 @@
             this.tbxSearch.ShadowDecoration.BorderRadius = 200;
             this.tbxSearch.Size = new System.Drawing.Size(461, 45);
             this.tbxSearch.TabIndex = 2;
+            this.tbxSearch.TextChanged += new System.EventHandler(this.tbxSearch_TextChanged);
             this.tbxSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbxSearch_KeyDown);
             // 
             // UsCtr_Order
