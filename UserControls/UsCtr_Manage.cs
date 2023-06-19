@@ -8,6 +8,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Diagnostics;
 using System.Drawing;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace IS201_N22_HTCL.UserControls
@@ -353,7 +354,13 @@ namespace IS201_N22_HTCL.UserControls
 
         private void Choose_Image_To_Load()
         {
-            OpenFileDialog ofd = new OpenFileDialog();
+            Thread thread = new Thread(() =>
+            {
+                if (Thread.CurrentThread.GetApartmentState() != ApartmentState.STA)
+                {
+                    Thread.CurrentThread.SetApartmentState(ApartmentState.STA);
+                }
+                OpenFileDialog ofd = new OpenFileDialog();
             ofd.Title = "Choose image";
             ofd.Filter = "Image Files (*.bmp;*.png;*.jpg)|*.bmp;*.png;*.jpg";
 
@@ -362,6 +369,10 @@ namespace IS201_N22_HTCL.UserControls
                 System.Drawing.Image img = new Bitmap(ofd.FileName);
                 pcDisc.Image = img.GetThumbnailImage(360, 200, null, new IntPtr());
             }
+            });
+
+            thread.SetApartmentState(ApartmentState.STA);
+            thread.Start();
         }
 
         private void tbxDisc_KeyDown(object sender, KeyEventArgs e)
