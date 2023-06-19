@@ -4,14 +4,10 @@ using IS201_N22_HTCL.Properties;
 using IS201_N22_HTCL.Service;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace IS201_N22_HTCL.UserControls
@@ -98,7 +94,7 @@ namespace IS201_N22_HTCL.UserControls
                 con.Open();
                 string insert = "insert into RENT (CUSTOMER_ID, RENT_DATE, DUE_DATE, RENT_DEPOSIT, TOTAL_PRICE, STATUS) values(" +
                     fLogin.ID + ",'" + dtRent.Text + "','" + dtDue.Text
-                    + "'," + lbDeposite.Text.Remove(lbDeposite.Text.IndexOf(" ")).Replace(",", "") + "," + lbRentPrice.Text.Remove(lbDeposite.Text.IndexOf(" ")).Replace(",", "") + "," + status + ")";
+                    + "'," + lbDeposite.Text.Remove(lbDeposite.Text.IndexOf(" ")).Replace(",", "") + "," + lbRentPrice.Text.Remove(lbRentPrice.Text.IndexOf(" ")).Replace(",", "") + "," + status + ")";
                 cmd = new SqlCommand(insert, con);
                 cmd.ExecuteNonQuery();
                 con.Close();
@@ -259,7 +255,7 @@ namespace IS201_N22_HTCL.UserControls
                 days = 1;
             money = 0;
             for (int i = 0; i < gvCart.Rows.Count; i++)
-                money += (int)dataTable.Rows[i][3] * days;
+                money += (int)dataTable.Rows[i][4] * days;
             lbRentPrice.Text = string.Format("{0:#,###} VNĐ", money);
         }
 
@@ -268,4 +264,4 @@ namespace IS201_N22_HTCL.UserControls
 
         }
     }
-    }
+}
